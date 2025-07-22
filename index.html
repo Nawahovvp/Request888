@@ -281,7 +281,7 @@
       }
 
       #parts tr:hover, #today tr:hover {
-        background-color: #f5f5f5;
+        background-color: #f55f5;
       }
 
       #parts .table-container, #today .table-container {
@@ -890,7 +890,7 @@
         Swal.fire({
           title: '📷 สแกน QR Code',
           html: `
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://sumptuous-lavender-molecule.glitch.me/" alt="QR Code" class="swal2-qrcode" style="width: 150px; height: 150px;">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://request888.vercel.app/" alt="QR Code" class="swal2-qrcode" style="width: 150px; height: 150px;">
             <p>สแกนเพื่อเข้าสู่ระบบขอเบิกอะไหล่</p>
           `,
           confirmButtonText: 'ปิด',
@@ -1119,7 +1119,7 @@
             <div id="contact-history" class="autocomplete-items" style="display:none;"></div>
             <span id="swal-contact-error" class="error-message"></span>
             <label class="swal2-label">📄 เลขที่ Call</label>
-            <input id="swal-call-number" class="swal2-input" placeholder="2... หรือ 5...">
+            <input id="swal-call-number" class="swal2-input" placeholder="2... หรือ ...">
             <div id="call-number-history" class="autocomplete-items" style="display:none;"></div>
             <span id="swal-call-number-error" class="error-message"></span>
             <label class="swal2-label">🗳️ Call Type</label>
@@ -1132,7 +1132,7 @@
             </select>
             <span id="swal-call-type-error" class="error-message"></span>
             <label class="swal2-label">🗒️ หมายเหตุ</label>
-            <input id="swal-remark" class="swal2-input" placeholder="ไม่บังคับ"readonly>
+            <input id="swal-remark" class="swal2-input" placeholder="ไม่บังคับ" readonly>
             <span id="swal-remark-error" class="error-message"></span>
           `,
           focusConfirm: false,
@@ -1253,10 +1253,9 @@
                   isValid = false;
                 } else if (
                   (callNumberInput.value.startsWith('2') && callNumberInput.value.length !== 11) ||
-                  (callNumberInput.value.startsWith('5') && callNumberInput.value.length !== 7) ||
-                  (!callNumberInput.value.startsWith('2') && !callNumberInput.value.startsWith('5'))
+                  (!callNumberInput.value.startsWith('2') && callNumberInput.value.length !== 7)
                 ) {
-                  errors.callNumberError.textContent = 'เลขที่ Call ต้องขึ้นต้นด้วย 2 (11 ตัวอักษร) หรือ 5 (7 ตัวอักษร)';
+                  errors.callNumberError.textContent = 'เลขที่ Call ต้องขึ้นต้นด้วย 2 (11 ตัวอักษร) หรือ (7 ตัวอักษร)';
                   callNumberInput.classList.add('invalid-input');
                   isValid = false;
                 }
@@ -1347,10 +1346,9 @@
                 isValid = false;
               } else if (
                 (callNumberInput.value.startsWith('2') && callNumberInput.value.length !== 11) ||
-                (callNumberInput.value.startsWith('5') && callNumberInput.value.length !== 7) ||
-                (!callNumberInput.value.startsWith('2') && !callNumberInput.value.startsWith('5'))
+                (!callNumberInput.value.startsWith('2') && callNumberInput.value.length !== 7)
               ) {
-                errors.callNumberError.textContent = 'เลขที่ Call ต้องขึ้นต้นด้วย 2 (11 ตัวอักษร) หรือ 5 (7 ตัวอักษร)';
+                errors.callNumberError.textContent = 'เลขที่ Call ต้องขึ้นต้นด้วย 2 (11 ตัวอักษร) หรือ (7 ตัวอักษร)';
                 callNumberInput.classList.add('invalid-input');
                 isValid = false;
               }
