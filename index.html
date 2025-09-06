@@ -1719,6 +1719,10 @@
               td.style.color = "red";
               td.style.fontWeight = "bold";
             }
+            if (col === "วิภาวดี" && value) {
+              td.style.color = "#4caf50"; // Green color
+              td.style.fontWeight = "bold";
+           }
 
             td.textContent = value;
             tr.appendChild(td);
