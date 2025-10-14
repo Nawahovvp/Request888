@@ -4,12 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>ระบบขอเบิกอะไหล่คลังสินค้านวนคร</title>
-
     <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-
     <style>
       body {
         margin: 0;
@@ -17,7 +15,6 @@
         background-color: #eceff1;
         font-family: "Kanit", sans-serif;
       }
-
       .header {
         display: flex;
         justify-content: center;
@@ -36,16 +33,13 @@
         height: 52px;
         transition: transform 0.3s ease;
       }
-
       .header:hover {
         transform: translateY(-2px);
       }
-
       @keyframes slideRight {
         0% { transform: translateX(-100%); }
         100% { transform: translateX(100%); }
       }
-
       h1 {
         color: #1a3c87;
         margin: 0;
@@ -61,7 +55,6 @@
   animation: slideRight 7s linear infinite;
   white-space: nowrap;
       }
-
       .container {
         max-width: 1500px;
         margin: 0 auto;
@@ -71,13 +64,11 @@
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         font-family: "Kanit", sans-serif;
       }
-
       .tabs {
         display: flex;
         margin-top: 5px;
         gap: 10px;
       }
-
       .tab-button {
         flex: 1;
         padding: 10px;
@@ -93,19 +84,16 @@
         font-family: "Kanit", sans-serif;
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
       }
-
       .tab-button:hover {
         background: linear-gradient(135deg, #1976d2, #1565c0);
         transform: translateY(-2px);
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
       }
-
       .tab-button.active {
         background: linear-gradient(135deg, #f06292, #ec407a);
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         transform: translateY(-2px);
       }
-
       .tab-content {
         display: none;
         padding: 15px;
@@ -114,11 +102,9 @@
         margin-top: 10px;
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
       }
-
       .tab-content.active {
         display: block;
       }
-
       .loading {
         position: fixed;
         top: 0;
@@ -134,14 +120,12 @@
         z-index: 9999;
         display: none;
       }
-
       iframe {
         width: 100%;
         height: 800px;
         border: none;
         border-radius: 10px;
       }
-
       .footer {
         background: linear-gradient(135deg, #0d47a1, #1565c0);
         color: white;
@@ -151,12 +135,10 @@
         border-radius: 10px;
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
       }
-
       .footer p {
         margin: 0;
         font-size: 14px;
       }
-
       .social-buttons {
         display: flex;
         justify-content: center;
@@ -164,7 +146,6 @@
         margin-top: 10px;
         padding: 10px;
       }
-
       .social-button {
         display: flex;
         align-items: center;
@@ -178,53 +159,43 @@
         transition: all 0.3s ease;
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
       }
-
       .social-button:hover {
         transform: scale(1.1);
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
       }
-
       .social-button.facebook {
         background: linear-gradient(135deg, #3b5998, #2a4373);
       }
-
       .social-button.tiktok {
         background: linear-gradient(135deg, #000000, #333333);
       }
-
       .social-button.telegram {
         background: linear-gradient(135deg, #26A5E4, #1b87b9);
       }
-
       .social-button.qrcode {
         background: linear-gradient(135deg, #4caf50, #388e3c);
       }
-
       @media screen and (max-width: 360px) {
         .social-button {
           width: 36px;
           height: 36px;
           font-size: 16px;
         }
-
         .social-buttons {
           gap: 8px;
         }
       }
-
       #parts, #today {
         font-family: "Poppins", sans-serif;
         background-color: #f0f4f8;
         padding: 15px;
         border-radius: 8px;
       }
-
       #parts #searchContainer, #today #searchContainer {
         display: flex;
         justify-content: flex-start;
         margin-bottom: 15px;
       }
-
       #parts #searchInput, #today #searchInputToday {
         width: 100%;
         max-width: 300px;
@@ -234,13 +205,11 @@
         font-size: 15px;
         transition: border-color 0.3s ease, box-shadow 0.3s ease;
       }
-
       #parts #searchInput:focus, #today #searchInputToday:focus {
         border-color: #2196f3;
         box-shadow: 0 0 5px rgba(33, 150, 243, 0.3);
         outline: none;
       }
-
       #parts .refresh-button {
         background: linear-gradient(135deg, #42a5f5, #2196f3);
         color: #fff;
@@ -254,13 +223,11 @@
         transition: all 0.3s ease;
         margin-left: 10px;
       }
-
       #parts .refresh-button:hover {
         background: linear-gradient(135deg, #1976d2, #1565c0);
         transform: translateY(-2px);
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
       }
-
       #parts table, #today table {
         width: 100%;
         border-collapse: collapse;
@@ -269,14 +236,12 @@
         border-radius: 8px;
         overflow: hidden;
       }
-
       #parts th, #parts td, #today th, #today td {
         padding: 10px;
         text-align: center;
         border: 1px solid #e0e0e0;
         font-size: 15px;
       }
-
       #parts th, #today th {
         background: linear-gradient(135deg, #2196f3, #1976d2);
         color: white;
@@ -284,11 +249,9 @@
         top: 0;
         z-index: 1;
       }
-
       #parts tr:hover, #today tr:hover {
         background-color: #f55f5;
       }
-
       #parts .table-container, #today .table-container {
         max-height: 80vh;
         overflow-y: auto;
@@ -296,7 +259,6 @@
         background: white;
         border-radius: 8px;
       }
-
       #parts .pagination {
         display: flex;
         flex-wrap: wrap;
@@ -304,7 +266,6 @@
         align-items: center;
         margin-top: 12px;
       }
-
       #parts .pagination button {
         background: linear-gradient(135deg, #42a5f5, #2196f3);
         color: white;
@@ -318,67 +279,53 @@
         font-size: 13px;
         transition: all 0.3s ease;
       }
-
       #parts .pagination button:hover {
         background: linear-gradient(135deg, #1976d2, #1565c0);
         transform: translateY(-2px);
       }
-
       #parts .pagination .active {
         background: linear-gradient(135deg, #ff9800, #f57c00);
       }
-
       #parts .pagination button:disabled {
         background: #b0bec5;
         cursor: not-allowed;
       }
-
       #parts .pagination select {
         padding: 8px;
         border-radius: 6px;
         margin: 0 10px;
         font-size: 14px;
       }
-
       #parts .table-container, #today .table-container {
         overflow-x: auto;
         width: 100%;
       }
-
       #parts table, #today table {
         min-width: 900px;
       }
-
       #parts td, #today td {
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
       }
-
       #parts td:nth-child(3), #today td:nth-child(4) {
         text-align: left;
       }
-
-      #parts th:nth-child(3), #parts td:nth-child(3), #today th:nth-child(4), #today td:nth-child(4) {
+      #parts th:nth-child(4), #parts td:nth-child(4) {
         min-width: 300px;
       }
-
-      #parts th:nth-child(4), #parts td:nth-child(4), #today th:nth-child(6), #today td:nth-child(6) {
-        min-width: 50px;
-      }
-
       #parts th:nth-child(5), #parts td:nth-child(5) {
         min-width: 50px;
       }
-
-      #parts th:nth-child(6), #parts td:nth-child(6), #today th:nth-child(11), #today td:nth-child(11) {
+      #parts th:nth-child(6), #parts td:nth-child(6) {
+        min-width: 50px;
+      }
+      #parts th:nth-child(7), #parts td:nth-child(7) {
         min-width: 250px;
       }
-
-      #parts th:nth-child(7), #parts td:nth-child(7) {
+      #parts th:nth-child(8), #parts td:nth-child(8) {
         min-width: 150px;
       }
-
       #parts .requisition-button, #today .detail-button {
         background: linear-gradient(135deg, #4caf50, #388e3c);
         color: white;
@@ -392,23 +339,19 @@
         transition: all 0.3s ease;
         text-transform: uppercase;
       }
-
       #parts .requisition-button:hover, #today .detail-button:hover {
         background: linear-gradient(135deg, #388e3c, #4caf50);
         transform: translateY(-2px);
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
       }
-
       #parts .requisition-button:focus, #today .detail-button:focus {
         outline: none;
         box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.3);
       }
-
       #parts .requisition-button:active, #today .detail-button:active {
         transform: translateY(1px);
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       }
-
       #parts .swal2-input {
         margin: 4px 0;
         width: 100%;
@@ -418,7 +361,6 @@
         padding: 6px;
         height: 36px;
       }
-
       #parts .swal2-select {
         margin: 4px 0;
         width: 100%;
@@ -428,7 +370,6 @@
         font-size: 14px;
         height: 36px;
       }
-
       #parts .swal2-label {
         font-weight: 500;
         margin: 8px 0 4px;
@@ -436,12 +377,10 @@
         text-align: left;
         font-size: 14px;
       }
-
       #parts .invalid-input {
         border: 2px solid #ef5350 !important;
         box-shadow: 0 0 5px rgba(239, 83, 80, 0.3);
       }
-
       #parts .error-message {
         color: #ef5350;
         font-size: 12px;
@@ -449,34 +388,27 @@
         display: block;
         text-align: left;
       }
-
       #parts a {
         text-decoration: none;
         color: #2196f3;
       }
-
       #parts a:hover {
         color: #1565c0;
       }
-
       #parts img {
         transition: transform 0.2s ease;
       }
-
       #parts img:hover {
         transform: scale(1.1);
       }
-
       #today .status-green {
         color: #4caf50;
         font-weight: bold;
       }
-
       #today .status-red {
         color: #ef5350;
         font-weight: bold;
       }
-
       #today .modal {
         display: none;
         position: fixed;
@@ -492,7 +424,6 @@
         transform: scale(0.95);
         transition: opacity 0.3s ease, transform 0.3s ease;
       }
-
       #today .modal-content {
         position: fixed;
         top: 50%;
@@ -508,12 +439,10 @@
         font-family: "Poppins", sans-serif;
         z-index: 1001;
       }
-
       @keyframes fadeIn {
         from { opacity: 0; transform: scale(0.95); }
         to { opacity: 1; transform: scale(1); }
       }
-
       #today .close {
         color: #78909c;
         float: right;
@@ -522,24 +451,19 @@
         cursor: pointer;
         transition: color 0.3s;
       }
-
       #today .close:hover {
         color: #e53935;
       }
-
       #today #modalContent {
         margin-top: 15px;
       }
-
       #today #modalContent div {
         padding: 10px 0;
         border-bottom: 1px solid #eceff1;
       }
-
       #today #modalContent div:last-child {
         border-bottom: none;
       }
-
       #today #modalContent span.label {
         display: inline-block;
         min-width: 120px;
@@ -547,26 +471,22 @@
         color: #2196f3;
         font-size: 15px;
       }
-
       #today #modalContent span.value {
         font-size: 15px;
         color: #37474f;
       }
-
       #today .modal-content h2 {
         color: #e91e63;
         font-size: 20px;
         font-weight: bold;
         margin-bottom: 15px;
       }
-
       #today .spinner-container {
         text-align: center;
         padding: 40px 20px;
         color: #2196f3;
         font-size: 15px;
       }
-
       #today .spinner {
         width: 40px;
         height: 40px;
@@ -576,12 +496,10 @@
         animation: spin 1s linear infinite;
         margin: 0 auto 10px auto;
       }
-
       @keyframes spin {
         0% { transform: rotate(0deg); }
         100% { transform: rotate(360deg); }
       }
-
       #error-container, #error-container-today {
         display: none;
         text-align: center;
@@ -592,7 +510,6 @@
         border-radius: 8px;
         margin-bottom: 15px;
       }
-
       #retry-button, #retry-button-today {
         background: linear-gradient(135deg, #ff7043, #f44336);
         color: white;
@@ -604,74 +521,61 @@
         margin-top: 10px;
         transition: all 0.3s ease;
       }
-
       #retry-button:hover, #retry-button-today:hover {
         background: linear-gradient(135deg, #f44336, #ff7043);
         transform: translateY(-2px);
       }
-
       .swal2-container {
         position: fixed !important;
         z-index: 9999;
         overflow-y: auto;
         max-height: 80vh;
       }
-
       .swal2-popup {
         max-width: 320px !important;
         padding: 15px !important;
         font-size: 14px !important;
         border-radius: 10px !important;
       }
-
       .swal2-content {
         padding-bottom: 150px !important;
       }
-
       .swal2-title {
         font-size: 18px !important;
         margin-bottom: 10px !important;
       }
-
       .swal2-actions {
         margin-top: 10px !important;
       }
-
       .swal2-confirm, .swal2-cancel {
         font-size: 14px !important;
         padding: 8px 16px !important;
       }
-
       .swal2-confirm:disabled {
         background: #b0bec5 !important;
         cursor: not-allowed !important;
         opacity: 0.6;
       }
-
       .autocomplete-items {
         max-height: 120px;
         border-radius: 6px;
       }
-
       .autocomplete-item {
         padding: 6px;
         font-size: 14px;
       }
-
       .swal2-qrcode {
         display: block;
         margin: 10px auto;
         border: 1px solid #ddd;
         border-radius: 4px;
       }
-
       .swal2-spinner-container {
         text-align: center;
         padding: 20px;
         color: #2196f3;
         font-size: 15px;
       }
-
       .swal2-spinner {
         width: 40px;
         height: 40px;
@@ -681,31 +585,25 @@
         animation: spin 1s linear infinite;
         margin: 0 auto 10px auto;
       }
-
       @media screen and (max-width: 360px) {
         .swal2-popup {
           max-width: 300px !important;
         }
-
         .swal2-input, .swal2-select {
           font-size: 13px;
           height: 34px;
         }
-
         .swal2-label {
           font-size: 13px;
         }
-
         .autocomplete-item {
           font-size: 13px;
         }
-
         .swal2-qrcode {
           width: 120px !important;
           height: 120px !important;
         }
       }
-
       /* Styles for #all tab */
       #all {
         font-family: 'Prompt', sans-serif;
@@ -862,11 +760,9 @@
         border: none;
         transition: background-color 0.3s; /* ลื่นตอน hover */
       }
-
       #all .all-pagination .all-page-number:hover {
         background-color: #2980b9; /* น้ำเงินเข้ม ตอน hover */
       }
-
       #all .all-pagination .all-page-number.active {
         background-color: #e67e22; /* ส้มเข้ม สำหรับหน้าปัจจุบัน */
         color: white;
@@ -884,41 +780,34 @@
         border: 1px solid #ccc;
       }
       /* --- สไตล์เดิมของคุณคงอยู่ตรงนี้ --- */
-
       /* --- ปรับความกว้างเฉพาะบางคอลัมน์ --- */
-      #all th:nth-child(3), #all td:nth-child(3) { 
+      #all th:nth-child(3), #all td:nth-child(3) {
         width: 180px; /* Material */
         min-width: 150px;
       }
-
       #all th:nth-child(4), #all td:nth-child(4) {
         width: 300px; /* Description */
         min-width: 250px;
       }
-
       #all th:nth-child(9), #all td:nth-child(9) {
         width: 200px; /* หมายเหตุ */
         min-width: 180px;
       }
-
       /* --- Responsive: เวลาจอแคบให้เลื่อนตารางได้ --- */
       #all .all-table-container {
         overflow-x: auto;
         width: 100%;
       }
-
       #all table {
         width: 100%;
         border-collapse: collapse;
         min-width: 900px; /* กันตารางแคบเกิน */
       }
-
       #all th, #all td {
         padding: 8px;
         text-align: left;
         white-space: nowrap; /* กันบรรทัดตก */
       }
-
       @media (max-width: 768px) {
         #all th, #all td {
           padding: 6px;
@@ -930,27 +819,22 @@
           transform: translateY(10px);
           animation: fadeInUp 0.5s ease forwards;
         }
-
         #all tr:nth-child(even) {
           animation-delay: 0.1s;
         }
-
         #all tr:nth-child(odd) {
           animation-delay: 0.2s;
         }
-
         @keyframes fadeInUp {
           to {
             opacity: 1;
             transform: translateY(0);
           }
         }
-
         /* Modal Animation */
         #all .all-modal-content {
           animation: zoomIn 0.4s ease;
         }
-
         @keyframes zoomIn {
           from {
             opacity: 0;
@@ -961,29 +845,25 @@
             transform: scale(1);
           }
         }
-
         /* ปุ่ม smooth */
         #all button, #all .all-page-number, #all .detail-button {
           transition: all 0.3s ease;
         }
-
         #all .detail-button:hover {
           transform: translateY(-2px);
           box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
-
         #all .all-pagination .all-page-number:hover {
           transform: scale(1.1);
         }
         #all th:nth-child(9), #all td:nth-child(9) {
-          width: 80px;  /* หรือเล็กกว่านี้ เช่น 60px */
+          width: 80px; /* หรือเล็กกว่านี้ เช่น 60px */
           min-width: 60px;
           max-width: 100px;
           overflow: hidden;
           text-overflow: ellipsis;
           white-space: nowrap;
         }
-
       /* Styles for #pending-calls tab */
       #pending-calls {
         font-family: 'Prompt', sans-serif;
@@ -1285,11 +1165,9 @@
     <div class="header">
       <h1>ระบบขอเบิกอะไหล่คลังสินค้านวนคร</h1>
     </div>
-
     <div class="loading" id="loading">
       <span>กำลังโหลดข้อมูล...</span>
     </div>
-
     <div class="container">
       <div class="tabs">
         <button class="tab-button active" id="tab-parts" onclick="showTab('parts')">
@@ -1305,7 +1183,6 @@
           อะไหล่จ่ายตาม Call
         </button>
       </div>
-
       <div id="parts" class="tab-content active">
         <div id="searchContainer">
           <input type="text" id="searchInput" placeholder="ค้นหา Code, Description...." />
@@ -1323,6 +1200,7 @@
             <thead>
               <tr>
                 <th>เบิก</th>
+                <th>Image</th>
                 <th>Material</th>
                 <th>Description</th>
                 <th>วิภาวดี</th>
@@ -1331,7 +1209,6 @@
                 <th>หมายเหตุ</th>
                 <th>Product</th>
                 <th>Spec</th>
-                <th>Image</th>
               </tr>
             </thead>
             <tbody></tbody>
@@ -1357,7 +1234,6 @@
           </div>
         </div>
       </div>
-
       <div id="today" class="tab-content">
         <div id="searchContainer">
           <input type="text" id="searchInputToday" placeholder="ค้นหา Code, Material, ชื่อช่าง หรือ ทีม..." />
@@ -1399,7 +1275,6 @@
           </div>
         </div>
       </div>
-
       <div id="all" class="tab-content">
         <div id="searchContainerAll">
           <input type="text" id="searchInputAll" placeholder="ค้นหา Code,Description, ชื่อช่าง หรือ ทีม..." />
@@ -1424,7 +1299,6 @@
             <tbody></tbody>
           </table>
         </div>
-
         <div id="detailModalAll" class="all-modal">
           <div class="all-modal-content">
             <span class="all-close" id="closeModalAll">&times;</span>
@@ -1432,7 +1306,6 @@
             <div id="modalContentAll"></div>
           </div>
         </div>
-
         <div class="all-pagination">
           <button id="firstPageAll"><i class="fas fa-chevron-left"></i><i class="fas fa-chevron-left"></i></button>
           <button id="prevPageAll"><i class="fas fa-chevron-left"></i></button>
@@ -1451,7 +1324,6 @@
           </div>
         </div>
       </div>
-
       <div id="pending-calls" class="tab-content">
         <div id="searchContainerPending">
           <div class="pending-filter-row">
@@ -1487,7 +1359,6 @@
             <tbody></tbody>
           </table>
         </div>
-
         <div id="detailModalPending" class="pending-modal">
           <div class="pending-modal-content">
             <span class="pending-close" id="closeModalPending">×</span>
@@ -1495,7 +1366,6 @@
             <div id="modalContentPending"></div>
           </div>
         </div>
-
         <div class="pending-pagination">
           <button id="firstPagePending"><i class="fas fa-chevron-left"></i><i class="fas fa-chevron-left"></i></button>
           <button id="prevPagePending"><i class="fas fa-chevron-left"></i></button>
@@ -1515,36 +1385,27 @@
         </div>
       </div>
     </div>
-
     <div class="footer">
       <p>© 2025 คลังสินค้า SparePart วิภาวดี 62 | สงวนลิขสิทธิ์</p>
     </div>
-
    <div class="social-buttons">
   <button class="social-button qrcode" onclick="showQRCode()">
     <i class="fas fa-qrcode"></i>
   </button>
 </div>
-
-
     <script>
       function showTab(tabId) {
         const buttons = document.querySelectorAll(".tab-button");
         const contents = document.querySelectorAll(".tab-content");
-
         document.getElementById("loading").style.display = "flex";
-
         buttons.forEach((btn) => btn.classList.remove("active"));
         contents.forEach((tab) => tab.classList.remove("active"));
-
         const targetTab = document.getElementById(tabId);
         targetTab.classList.add("active");
-
         const clickedButton = Array.from(buttons).find(
           (btn) => btn.id === `tab-${tabId}`
         );
         if (clickedButton) clickedButton.classList.add("active");
-
         if (tabId === "parts") {
           loadData();
         } else if (tabId === "today") {
@@ -1556,11 +1417,9 @@
         }
         hideLoading();
       }
-
       function hideLoading() {
         document.getElementById("loading").style.display = "none";
       }
-
       function showQRCode() {
         Swal.fire({
           title: '📷 สแกน QR Code',
@@ -1576,12 +1435,10 @@
           }
         });
       }
-
       // Parts tab script (original)
       const sheetID = "1nbhLKxs7NldWo_y0s4qZ8rlpIfyyGkR_Dqq8INmhYlw";
       const sheetName = "MainSap";
       const url = `https://opensheet.elk.sh/${sheetID}/${sheetName}`;
-
       const searchInput = document.getElementById("searchInput");
       const searchButton = document.getElementById("searchButton");
       const tableBody = document.querySelector("#data-table tbody");
@@ -1594,24 +1451,20 @@
       const lastPageButton = document.getElementById("lastPage");
       const errorContainer = document.getElementById("error-container");
       const retryButton = document.getElementById("retry-button");
-
       let allData = [];
       let currentPage = 1;
       let itemsPerPage = 10;
       let currentFilteredData = [];
-
       itemsPerPageSelect.addEventListener("change", () => {
         itemsPerPage = parseInt(itemsPerPageSelect.value, 10);
         currentPage = 1;
         renderTableData();
         renderPagination(allData.length);
       });
-
       retryButton.addEventListener("click", () => {
         errorContainer.style.display = "none";
         loadData();
       });
-
       function renderTable(data) {
         if (!tableBody) {
           console.error("Table body for #data-table not found");
@@ -1626,7 +1479,6 @@
         tableBody.innerHTML = "";
         data.forEach((row) => {
           const tr = document.createElement("tr");
-
           const requisitionTd = document.createElement("td");
           const btn = document.createElement("button");
           btn.textContent = "เบิก";
@@ -1634,8 +1486,8 @@
           btn.onclick = () => showRequisitionDialog(row);
           requisitionTd.appendChild(btn);
           tr.appendChild(requisitionTd);
-
           const columns = [
+            "UrlWeb",
             "Material",
             "Description",
             "วิภาวดี",
@@ -1643,14 +1495,11 @@
             "Rebuilt",
             "หมายเหตุ",
             "Product",
-            "OCRTAXT",
-            "UrlWeb",
+            "OCRTAXT"
           ];
-
           // Convert values to numbers for comparison
           const vibhavadiValue = parseFloat(row["วิภาวดี"]) || 0;
           const unrestrictedValue = parseFloat(row["Unrestricted"]) || 0;
-
           // Determine styling based on conditions
           let textColor = "";
           let fontWeight = "";
@@ -1661,11 +1510,9 @@
             textColor = "#2196f3"; // Blue
             fontWeight = "bold";
           }
-
           columns.forEach((col) => {
             const td = document.createElement("td");
             let value = row[col] || "";
-
             if (col === "วิภาวดี" || col === "Unrestricted") {
               if (value && !isNaN(value)) {
                 value = Number(value).toLocaleString("en-US", {
@@ -1675,12 +1522,10 @@
                 value = "";
               }
             }
-
             if ((col === "หมายเหตุ" || col === "Rebuilt") && value) {
               td.style.color = "red";
               td.style.fontWeight = "bold";
             }
-
             // Apply conditional styling to Material, Description, วิภาวดี, and Unrestricted
             if (
               col === "Material" ||
@@ -1691,7 +1536,6 @@
               if (textColor) td.style.color = textColor;
               if (fontWeight) td.style.fontWeight = fontWeight;
             }
-
             if (col === "UrlWeb" && value && value.startsWith("https://drive.google.com/uc?")) {
               td.innerHTML = `
                 <a href="${value}" target="_blank">
@@ -1709,14 +1553,11 @@
             }
             tr.appendChild(td);
           });
-
           tableBody.appendChild(tr);
         });
       }
-
       async function showRequisitionDialog(row) {
         document.body.style.overflow = 'hidden';
-
         const history = {
           employeeCode: getFromLocalStorage('employeeCode'),
           team: getFromLocalStorage('team'),
@@ -1724,7 +1565,6 @@
           callNumber: getFromLocalStorage('callNumber'),
           callType: getFromLocalStorage('callType'),
         };
-
         Swal.fire({
           title: '📋 เบิกอะไหล่นวนคร',
           html: `
@@ -1826,9 +1666,7 @@
             const callTypeInput = document.getElementById('swal-call-type');
             const remarkInput = document.getElementById('swal-remark');
             const confirmButton = document.querySelector('.swal2-confirm');
-
             confirmButton.disabled = true;
-
             function setupAutocomplete(input, key, containerId) {
               input.addEventListener('input', () => {
                 const container = document.getElementById(containerId);
@@ -1855,18 +1693,15 @@
                 }, 200);
               });
             }
-
             setupAutocomplete(employeeCodeInput, 'employeeCode', 'employee-code-history');
             setupAutocomplete(teamInput, 'team', 'team-history');
             setupAutocomplete(contactInput, 'contact', 'contact-history');
             setupAutocomplete(callNumberInput, 'callNumber', 'call-number-history');
             setupAutocomplete(callTypeInput, 'callType', 'call-type-history');
-
             const lastTeam = getFromLocalStorage('team')[0];
             const lastContact = getFromLocalStorage('contact')[0];
             if (lastTeam) teamInput.value = lastTeam;
             if (lastContact) contactInput.value = lastContact;
-
             const inputs = [quantityInput, employeeCodeInput, teamInput, contactInput, callNumberInput, callTypeInput, remarkInput];
             inputs.forEach(input => {
               input.addEventListener('focus', () => {
@@ -1879,7 +1714,6 @@
                 popup.style.transform = 'translateY(0)';
               });
             });
-
             function validateInputs() {
               const errors = {
                 quantityError: document.getElementById('swal-quantity-error'),
@@ -1890,37 +1724,30 @@
                 callTypeError: document.getElementById('swal-call-type-error'),
                 remarkError: document.getElementById('swal-remark-error')
               };
-
               inputs.forEach(input => input.classList.remove('invalid-input'));
               Object.values(errors).forEach(el => el.textContent = '');
-
               let isValid = true;
-
               if (!quantityInput.value || quantityInput.value < 1) {
                 errors.quantityError.textContent = 'กรุณากรอกจำนวนที่มากกว่าหรือเท่ากับ 1';
                 quantityInput.classList.add('invalid-input');
                 isValid = false;
               }
-
               const employeeCode = employeeCodeInput.value.trim();
               if (!employeeCode || !/^\d{7}$/.test(employeeCode) || employeeCode[0] !== '7') {
                 errors.employeeCodeError.textContent = 'รหัสพนักงานต้องเป็นตัวเลข 7 หลัก เริ่มด้วย 7 (เช่น 7512411)';
                 employeeCodeInput.classList.add('invalid-input');
                 isValid = false;
               }
-
               if (!teamInput.value.trim()) {
                 errors.teamError.textContent = 'กรุณากรอกทีม';
                 teamInput.classList.add('invalid-input');
                 isValid = false;
               }
-
               if (!contactInput.value || !/^(0|\+66)[6-9][0-9]{7,8}$/.test(contactInput.value)) {
                 errors.contactError.textContent = 'กรุณากรอกเบอร์ติดต่อที่ถูกต้อง (เช่น 08xxxxxxxx)';
                 contactInput.classList.add('invalid-input');
                 isValid = false;
               }
-
               const hasRemark = remarkInput.value.trim().length > 0;
               if (!hasRemark) {
                 if (!callNumberInput.value) {
@@ -1935,17 +1762,14 @@
                   callNumberInput.classList.add('invalid-input');
                   isValid = false;
                 }
-
                 if (!callTypeInput.value) {
                   errors.callTypeError.textContent = 'กรุณาเลือก Call Type';
                   callTypeInput.classList.add('invalid-input');
                   isValid = false;
                 }
               }
-
               confirmButton.disabled = !isValid;
             }
-
             quantityInput.addEventListener('input', validateInputs);
             employeeCodeInput.addEventListener('input', validateInputs);
             teamInput.addEventListener('input', validateInputs);
@@ -1953,9 +1777,7 @@
             callNumberInput.addEventListener('input', validateInputs);
             callTypeInput.addEventListener('change', validateInputs);
             remarkInput.addEventListener('input', validateInputs);
-
             validateInputs();
-
             quantityInput.focus();
           },
           didClose: () => {
@@ -1969,7 +1791,6 @@
             const callNumberInput = document.getElementById('swal-call-number');
             const callTypeInput = document.getElementById('swal-call-type');
             const remarkInput = document.getElementById('swal-remark');
-
             const errors = {
               quantityError: document.getElementById('swal-quantity-error'),
               employeeCodeError: document.getElementById('swal-employee-code-error'),
@@ -1979,21 +1800,16 @@
               callTypeError: document.getElementById('swal-call-type-error'),
               remarkError: document.getElementById('swal-remark-error')
             };
-
             [quantityInput, employeeCodeInput, teamInput, contactInput, callNumberInput, callTypeInput, remarkInput].forEach(input => {
               input.classList.remove('invalid-input');
             });
-
             Object.values(errors).forEach(el => el.textContent = '');
-
             let isValid = true;
-
             if (!quantityInput.value || quantityInput.value < 1) {
               errors.quantityError.textContent = 'กรุณากรอกจำนวนที่มากกว่าหรือเท่ากับ 1';
               quantityInput.classList.add('invalid-input');
               isValid = false;
             }
-
             const employeeCode = employeeCodeInput.value.trim();
             console.log('Employee Code Input:', employeeCode);
             if (!employeeCode || !/^\d{7}$/.test(employeeCode) || employeeCode[0] !== '7') {
@@ -2001,19 +1817,16 @@
               employeeCodeInput.classList.add('invalid-input');
               isValid = false;
             }
-
             if (!teamInput.value.trim()) {
               errors.teamError.textContent = 'กรุณากรอกทีม';
               teamInput.classList.add('invalid-input');
               isValid = false;
             }
-
             if (!contactInput.value || !/^(0|\+66)[6-9][0-9]{7,8}$/.test(contactInput.value)) {
               errors.contactError.textContent = 'กรุณากรอกเบอร์ติดต่อที่ถูกต้อง (เช่น 08xxxxxxxx)';
               contactInput.classList.add('invalid-input');
               isValid = false;
             }
-
             const hasRemark = remarkInput.value.trim().length > 0;
             if (!hasRemark) {
               if (!callNumberInput.value) {
@@ -2028,14 +1841,12 @@
                 callNumberInput.classList.add('invalid-input');
                 isValid = false;
               }
-
               if (!callTypeInput.value) {
                 errors.callTypeError.textContent = 'กรุณาเลือก Call Type';
                 callTypeInput.classList.add('invalid-input');
                 isValid = false;
               }
             }
-
             if (isValid) {
               saveToLocalStorage('employeeCode', employeeCode);
               saveToLocalStorage('team', teamInput.value);
@@ -2046,7 +1857,6 @@
               if (callTypeInput.value) {
                 saveToLocalStorage('callType', callTypeInput.value);
               }
-
               return {
                 quantity: quantityInput.value,
                 employeeCode: employeeCode,
@@ -2057,7 +1867,6 @@
                 remark: remarkInput.value
               };
             }
-
             return false;
           }
         }).then(async (result) => {
@@ -2073,7 +1882,6 @@
             formData.append("entry.1899594146", formValues.team);
             formData.append("entry.1607225659", formValues.callNumber);
             formData.append("entry.738519154", formValues.callType);
-
             Swal.fire({
               title: 'กำลังบันทึกข้อมูล...',
               html: `
@@ -2086,7 +1894,6 @@
               allowOutsideClick: false,
               allowEscapeKey: false
             });
-
             try {
               const response = await fetch(formUrl, {
                 method: "POST",
@@ -2096,9 +1903,7 @@
                 },
                 body: formData.toString()
               });
-
               await new Promise(resolve => setTimeout(resolve, 2000));
-
               Swal.fire({
                 icon: 'success',
                 title: 'ส่งข้อมูลสำเร็จ!',
@@ -2118,7 +1923,6 @@
                     allowOutsideClick: false,
                     allowEscapeKey: false
                   });
-
                   setTimeout(() => {
                     Swal.close();
                     showTab('today');
@@ -2137,7 +1941,6 @@
           }
         });
       }
-
       function saveToLocalStorage(key, value) {
         let items = JSON.parse(localStorage.getItem(key)) || [];
         if (!items.includes(value)) {
@@ -2146,18 +1949,14 @@
           localStorage.setItem(key, JSON.stringify(items));
         }
       }
-
       function getFromLocalStorage(key) {
         return JSON.parse(localStorage.getItem(key)) || [];
       }
-
       function renderPagination(totalItems) {
         const totalPages = Math.ceil(totalItems / itemsPerPage);
         pageNumbers.innerHTML = "";
-
         let startPage = Math.max(1, currentPage - 2);
         let endPage = Math.min(totalPages, currentPage + 2);
-
         if (totalPages <= 5) {
           startPage = 1;
           endPage = totalPages;
@@ -2168,7 +1967,6 @@
             startPage = totalPages - 4;
           }
         }
-
         for (let page = startPage; page <= endPage; page++) {
           const button = document.createElement("button");
           button.textContent = page;
@@ -2176,25 +1974,21 @@
           button.onclick = () => changePage(page);
           pageNumbers.appendChild(button);
         }
-
         firstPageButton.disabled = currentPage === 1;
         prevPageButton.disabled = currentPage === 1;
         nextPageButton.disabled = currentPage === totalPages;
         lastPageButton.disabled = currentPage === totalPages;
       }
-
       function changePage(page) {
         currentPage = page;
         renderTableData();
         renderPagination(currentFilteredData.length);
       }
-
       function renderTableData() {
         const startIndex = (currentPage - 1) * itemsPerPage;
         const endIndex = startIndex + itemsPerPage;
         renderTable(currentFilteredData.slice(startIndex, endIndex));
       }
-
       searchButton.addEventListener("click", () => {
         const keyword = searchInput.value.trim().toLowerCase();
         if (!keyword) {
@@ -2221,20 +2015,17 @@
         renderTableData();
         renderPagination(currentFilteredData.length);
       });
-
       searchInput.addEventListener("keypress", (e) => {
         if (e.key === "Enter") {
           searchButton.click();
           searchInput.blur();
         }
       });
-
       firstPageButton.addEventListener("click", () => {
         currentPage = 1;
         renderTableData();
         renderPagination(currentFilteredData.length);
       });
-
       prevPageButton.addEventListener("click", () => {
         if (currentPage > 1) {
           currentPage--;
@@ -2242,7 +2033,6 @@
           renderPagination(currentFilteredData.length);
         }
       });
-
       nextPageButton.addEventListener("click", () => {
         const totalPages = Math.ceil(currentFilteredData.length / itemsPerPage);
         if (currentPage < totalPages) {
@@ -2251,37 +2041,29 @@
           renderPagination(currentFilteredData.length);
         }
       });
-
       lastPageButton.addEventListener("click", () => {
         const totalPages = Math.ceil(currentFilteredData.length / itemsPerPage);
         currentPage = totalPages;
         renderTableData();
         renderPagination(currentFilteredData.length);
       });
-
       async function loadData() {
         document.getElementById("loading").style.display = "flex";
         errorContainer.style.display = "none";
         console.log("Starting data load from:", url);
-
         try {
           const controller = new AbortController();
           const timeoutId = setTimeout(() => controller.abort(), 15000);
-
           const response = await fetch(url, { signal: controller.signal });
           clearTimeout(timeoutId);
-
           if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
           }
-
           const data = await response.json();
           console.log("Data loaded successfully:", data);
-
           if (!Array.isArray(data) || data.length === 0) {
             throw new Error("No data received or data is empty");
           }
-
           allData = data;
           currentFilteredData = data;
           renderTableData();
@@ -2294,7 +2076,6 @@
           document.getElementById("error-message").textContent = error.message.includes("aborted")
             ? "การโหลดข้อมูลใช้เวลานานเกินไป กรุณาตรวจสอบการเชื่อมต่อ"
             : `ไม่สามารถโหลดข้อมูลได้: ${error.message}`;
-
           Swal.fire({
             icon: "error",
             title: "ไม่สามารถโหลดข้อมูล",
@@ -2305,12 +2086,10 @@
           });
         }
       }
-
       // Today tab script (original)
       const sheetIDToday = "1fPzWLyR0xqU30gyIMSuSCuglKEr76AT1ekCR3mY-nrU";
       const sheetNameToday = "ReQuesttoday";
       const urlToday = `https://opensheet.elk.sh/${sheetIDToday}/${sheetNameToday}`;
-
       const modal = document.getElementById("detailModal");
       const modalContent = document.getElementById("modalContent");
       const closeModal = document.getElementById("closeModal");
@@ -2318,35 +2097,28 @@
       const tableBodyToday = document.querySelector("#data-table-today tbody");
       const errorContainerToday = document.getElementById("error-container-today");
       const retryButtonToday = document.getElementById("retry-button-today");
-
       let allDataToday = [];
-
       retryButtonToday.addEventListener("click", () => {
         errorContainerToday.style.display = "none";
         loadTodayData();
       });
-
       closeModal.onclick = () => {
         modal.style.opacity = "0";
         modal.style.transform = "scale(0.95)";
         setTimeout(() => (modal.style.display = "none"), 300);
       };
-
       window.onclick = (event) => {
         if (event.target == modal) closeModal.click();
       };
-
       function renderTableToday(data) {
         tableBodyToday.innerHTML = "";
         data.forEach((row) => {
           const tr = document.createElement("tr");
-
           const statusTd = document.createElement("td");
           const status = row["Status"] || "";
           statusTd.textContent = status;
           statusTd.className = status === "สั่งเบิกแล้ว" ? "status-green" : "status-red";
           tr.appendChild(statusTd);
-
           const columns = [
             "Timestamp",
             "Code",
@@ -2359,11 +2131,9 @@
             "CallType",
             "หมายเหตุ",
           ];
-
           columns.forEach((col) => {
             const td = document.createElement("td");
             let value = row[col] || "";
-
             if (col === "จำนวน" || col === "วิภาวดี") {
               if (value && !isNaN(value)) {
                 value = Number(value).toLocaleString("en-US", { maximumFractionDigits: 0 });
@@ -2371,22 +2141,18 @@
                 value = "";
               }
             }
-
             if (col === "หมายเหตุ" && value) {
               td.style.color = "red";
               td.style.fontWeight = "bold";
             }
-
             if (col === "Code" && (row["หมายเหตุ"] || "").trim() !== "") {
               td.style.color = "red";
               td.style.fontWeight = "bold";
             }
-
             if (col === "Material Description" && (row["หมายเหตุ"] || "").trim() !== "") {
               td.style.color = "red";
               td.style.fontWeight = "bold";
             }
-
             if (col === "Timestamp" && (row["หมายเหตุ"] || "").trim() !== "") {
               td.style.color = "red";
               td.style.fontWeight = "bold";
@@ -2395,11 +2161,9 @@
               td.style.color = "#4caf50"; // Green color
               td.style.fontWeight = "bold";
            }
-
             td.textContent = value;
             tr.appendChild(td);
           });
-
           const detailTd = document.createElement("td");
           const btn = document.createElement("button");
           btn.textContent = "ดูรายละเอียด";
@@ -2436,11 +2200,9 @@
           };
           detailTd.appendChild(btn);
           tr.appendChild(detailTd);
-
           tableBodyToday.appendChild(tr);
         });
       }
-
       searchInputToday.addEventListener("input", (e) => {
         const keyword = e.target.value.toLowerCase();
         const filtered = allDataToday.filter((row) => {
@@ -2453,31 +2215,24 @@
         });
         renderTableToday(filtered);
       });
-
       async function loadTodayData() {
         document.getElementById("loading").style.display = "flex";
         document.getElementById("loadingToday").style.display = "block";
         errorContainerToday.style.display = "none";
         console.log("Starting data load from:", urlToday);
-
         try {
           const controller = new AbortController();
           const timeoutId = setTimeout(() => controller.abort(), 15000);
-
           const response = await fetch(urlToday, { signal: controller.signal });
           clearTimeout(timeoutId);
-
           if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
           }
-
           const data = await response.json();
           console.log("Today data loaded successfully:", data);
-
           if (!Array.isArray(data) || data.length === 0) {
             throw new Error("No data received or data is empty");
           }
-
           allDataToday = data;
           renderTableToday(data);
           document.getElementById("loading").style.display = "none";
@@ -2491,7 +2246,6 @@
           document.getElementById("error-message-today").textContent = error.message.includes("aborted")
             ? "การโหลดข้อมูลใช้เวลานานเกินไป กรุณาตรวจสอบการเชื่อมต่อ"
             : `ไม่สามารถโหลดข้อมูลได้: ${error.message}`;
-
           Swal.fire({
             icon: "error",
             title: "ไม่สามารถโหลดข้อมูล",
@@ -2502,12 +2256,10 @@
           });
         }
       }
-
       // All tab script
       const sheetIDAll = '1fPzWLyR0xqU30gyIMSuSCuglKEr76AT1ekCR3mY-nrU';
       const sheetNameAll = 'ReQuestHistory';
       const urlAll = `https://opensheet.elk.sh/${sheetIDAll}/${sheetNameAll}`;
-
       const modalAll = document.getElementById("detailModalAll");
       const modalContentAll = document.getElementById("modalContentAll");
       const closeModalAll = document.getElementById("closeModalAll");
@@ -2519,46 +2271,37 @@
       const nextPageButtonAll = document.getElementById("nextPageAll");
       const lastPageButtonAll = document.getElementById("lastPageAll");
       const itemsPerPageSelectAll = document.getElementById("itemsPerPageAll");
-
       let allDataAll = [];
       let currentPageAll = 1;
       let itemsPerPageAll = parseInt(itemsPerPageSelectAll.value);
-
       closeModalAll.onclick = () => modalAll.style.display = "none";
       window.onclick = event => {
         if (event.target == modalAll) modalAll.style.display = "none";
       };
-
       itemsPerPageSelectAll.addEventListener("change", (e) => {
         itemsPerPageAll = parseInt(e.target.value);
         currentPageAll = 1;
         renderTableAll(allDataAll);
       });
-
      function renderTableAll(data) {
         tableBodyAll.innerHTML = '';
         const startIdx = (currentPageAll - 1) * itemsPerPageAll;
         const endIdx = startIdx + itemsPerPageAll;
         const paginatedData = data.slice(startIdx, endIdx);
-
         paginatedData.forEach((row, i) => {
           const tr = document.createElement("tr");
           tr.style.animationDelay = `${i * 0.05}s`; // Fade-in ทีละแถว
-
-
            const status = row["Status"] || "";
           const statusTd = document.createElement("td");
           statusTd.textContent = status;
           statusTd.className = status === "สั่งเบิกแล้ว" ? "status-green" : "status-red";
           tr.appendChild(statusTd);
-
           const columns = ["Timestamp", "Code", "Material Description", "จำนวน", "ชื่อช่าง", "หน่วยงาน","CallNumber","CallType", "Note"];
           columns.forEach(col => {
             const td = document.createElement("td");
             td.textContent = row[col] || "";
             tr.appendChild(td);
           });
-
           const detailTd = document.createElement("td");
           const btn = document.createElement("button");
           btn.textContent = "ดูรายละเอียด";
@@ -2572,19 +2315,15 @@
           };
           detailTd.appendChild(btn);
           tr.appendChild(detailTd);
-
           tableBodyAll.appendChild(tr);
         });
         updatePaginationAll(data);
       }
-
       function updatePaginationAll(data) {
         const totalPages = Math.ceil(data.length / itemsPerPageAll);
         pageNumbersContainerAll.innerHTML = '';
-
         const startPage = currentPageAll; // เริ่มที่หน้าปัจจุบัน
         const endPage = Math.min(totalPages, currentPageAll + 2); // ไปอีก 2 หน้า
-
         for (let i = startPage; i <= endPage; i++) {
           const pageNumberButton = document.createElement("button");
           pageNumberButton.className = `all-page-number ${i === currentPageAll ? 'active' : ''}`;
@@ -2596,13 +2335,11 @@
           pageNumbersContainerAll.appendChild(pageNumberButton);
         }
       }
-
       // ปุ่มเลื่อนไปหน้าแรก
       firstPageButtonAll.onclick = () => {
         currentPageAll = 1;
         renderTableAll(allDataAll);
       };
-
       // ปุ่มย้อนกลับ
       prevPageButtonAll.onclick = () => {
         if (currentPageAll > 1) {
@@ -2610,7 +2347,6 @@
           renderTableAll(allDataAll);
         }
       };
-
       // ปุ่มไปหน้า next
       nextPageButtonAll.onclick = () => {
         const totalPages = Math.ceil(allDataAll.length / itemsPerPageAll);
@@ -2619,7 +2355,6 @@
           renderTableAll(allDataAll);
         }
       };
-
       // ปุ่มไปหน้าสุดท้าย
       lastPageButtonAll.onclick = () => {
         currentPageAll = Math.ceil(allDataAll.length / itemsPerPageAll);
@@ -2638,7 +2373,6 @@
         });
         renderTableAll(filtered);
       });
-
       function loadAllData() {
         fetch(urlAll)
           .then(response => response.json())
@@ -2650,12 +2384,10 @@
             console.error("ไม่สามารถโหลดข้อมูลได้:", error);
           });
       }
-
       // Pending-calls tab script
       const sheetIDPending = '1dzE4Xjc7H0OtNUmne62u0jFQT-CiGsG2eBo-1v6mrZk';
       const sheetNamePending = 'Call_Report';
       const urlPending = `https://opensheet.elk.sh/${sheetIDPending}/${sheetNamePending}`;
-
       const modalPending = document.getElementById("detailModalPending");
       const modalContentPending = document.getElementById("modalContentPending");
       const closeModalPending = document.getElementById("closeModalPending");
@@ -2669,47 +2401,39 @@
       const nextPageButtonPending = document.getElementById("nextPagePending");
       const lastPageButtonPending = document.getElementById("lastPagePending");
       const itemsPerPageSelectPending = document.getElementById("itemsPerPagePending");
-
       let allDataPending = [];
       let currentPagePending = 1;
       let itemsPerPagePending = 20;
       let sortConfigPending = { column: null, direction: 'asc' };
-
       closeModalPending.onclick = () => modalPending.style.display = "none";
       window.onclick = event => {
         if (event.target == modalPending) modalPending.style.display = "none";
       };
-
       itemsPerPageSelectPending.addEventListener("change", (e) => {
         itemsPerPagePending = parseInt(e.target.value);
         currentPagePending = 1; // รีเซ็ตหน้าเมื่อเปลี่ยนจำนวนรายการต่อหน้า
         filterAndRenderTablePending();
       });
-
       searchInputPending.addEventListener("keypress", (e) => {
         if (e.key === "Enter") {
           currentPagePending = 1; // รีเซ็ตหน้าเมื่อค้นหาใหม่
           filterAndRenderTablePending();
         }
       });
-
       searchButtonPending.addEventListener("click", () => {
         currentPagePending = 1; // รีเซ็ตหน้าเมื่อค้นหาใหม่
         filterAndRenderTablePending();
       });
-
       function populateTeamFilterPending(data) {
         const filteredData = data.filter(row => {
           const vipa = Number(row["Vipa"] || 0);
           const pendingDept = (row["ค้างหน่วยงาน"] || "").toLowerCase();
-          return vipa > 0 && 
-                 !pendingDept.includes("stock วิภาวดี 62") && 
+          return vipa > 0 &&
+                 !pendingDept.includes("stock วิภาวดี 62") &&
                  !pendingDept.includes("nec_ยกเลิกผลิต");
         });
-
         const teams = [...new Set(filteredData.map(row => row["Team"]).filter(team => team && team.trim() !== ""))].sort();
         teamFilterPending.innerHTML = '<option value="">ทั้งหมด</option>';
-
         if (teams.length === 0) {
           const option = document.createElement("option");
           option.value = "";
@@ -2725,7 +2449,6 @@
           });
         }
       }
-
       function addSortListenersPending() {
         const sortableHeaders = document.querySelectorAll("#pending-calls th.sortable");
         sortableHeaders.forEach(header => {
@@ -2742,7 +2465,6 @@
           });
         });
       }
-
       function updateSortArrowsPending() {
         const sortableHeaders = document.querySelectorAll("#pending-calls th.sortable");
         sortableHeaders.forEach(header => {
@@ -2755,17 +2477,16 @@
           }
         });
       }
-
       function filterAndRenderTablePending() {
         const selectedTeam = teamFilterPending.value;
         const keyword = searchInputPending.value.toLowerCase().trim();
         let filteredData = allDataPending.filter(row => {
           const pendingDept = (row["ค้างหน่วยงาน"] || "").toLowerCase();
-          return Number(row["Vipa"] || 0) > 0 && 
-                 !pendingDept.includes("stock วิภาวดี 62") && 
-                 !pendingDept.includes("nec_ยกเลิกผลิต") && 
-                 (!selectedTeam || row["Team"] === selectedTeam) && 
-                 (!keyword || 
+          return Number(row["Vipa"] || 0) > 0 &&
+                 !pendingDept.includes("stock วิภาวดี 62") &&
+                 !pendingDept.includes("nec_ยกเลิกผลิต") &&
+                 (!selectedTeam || row["Team"] === selectedTeam) &&
+                 (!keyword ||
                    (row["DateTime"] || "").toLowerCase().includes(keyword) ||
                    (row["Ticket Number"] || "").toLowerCase().includes(keyword) ||
                    (row["Team"] || "").toLowerCase().includes(keyword) ||
@@ -2777,7 +2498,6 @@
                    (row["DayRepair"] || "").toLowerCase().includes(keyword)
                  );
         });
-
         if (sortConfigPending.column) {
           filteredData.sort((a, b) => {
             let valueA = a[sortConfigPending.column] || "";
@@ -2793,47 +2513,39 @@
             }
           });
         }
-
         // ตรวจสอบว่า currentPage อยู่ในช่วงที่ถูกต้อง
         const totalPages = Math.ceil(filteredData.length / itemsPerPagePending);
         if (currentPagePending > totalPages) {
           currentPagePending = totalPages || 1;
         }
-
         renderTablePending(filteredData);
         updateCallCountPending(filteredData);
       }
-
       teamFilterPending.addEventListener("change", () => {
         currentPagePending = 1; // รีเซ็ตหน้าเมื่อเปลี่ยนทีม
         filterAndRenderTablePending();
       });
-
       function updateCallCountPending(data) {
         const uniqueTickets = [...new Set(data.map(row => row["Ticket Number"]))];
         const count = uniqueTickets.length;
         const callCountValue = document.getElementById("callCountValuePending");
         callCountValue.textContent = count;
       }
-
       function formatDateTimePending(dateTime) {
         if (!dateTime) return "";
         const datePart = dateTime.split(" ")[0];
         return datePart;
       }
-
       function renderTablePending(data) {
         tableBodyPending.innerHTML = '';
         const startIdx = (currentPagePending - 1) * itemsPerPagePending;
         const endIdx = startIdx + itemsPerPagePending;
         const paginatedData = data.slice(startIdx, endIdx);
-
         if (paginatedData.length === 0) {
           tableBodyPending.innerHTML = '<tr><td colspan="10" class="pending-text-center">ไม่พบข้อมูลที่ตรงกับเงื่อนไข</td></tr>';
           updatePaginationPending(data);
           return;
         }
-
         const ticketGroups = {};
         data.forEach(row => {
           const ticket = row["Ticket Number"];
@@ -2842,7 +2554,6 @@
           }
           ticketGroups[ticket].push(row);
         });
-
         const uniqueTickets = Object.keys(ticketGroups).sort();
         const colorMap = {};
         uniqueTickets.forEach((ticket, index) => {
@@ -2854,13 +2565,11 @@
             colorMap[ticket] = index % 2 === 0 ? "pending-yellow-light" : "pending-pink-pastel";
           }
         });
-
         paginatedData.forEach((row, i) => {
           const tr = document.createElement("tr");
           tr.style.animationDelay = `${i * 0.05}s`;
           const ticket = row["Ticket Number"];
           tr.className = colorMap[ticket];
-
           const columns = ["DateTime", "Ticket Number", "Team", "Brand", "ค้างหน่วยงาน", "Material", "Description", "Vipa", "DayRepair"];
           columns.forEach(col => {
             const td = document.createElement("td");
@@ -2882,7 +2591,6 @@
             }
             tr.appendChild(td);
           });
-
           const detailTd = document.createElement("td");
           const btn = document.createElement("button");
           btn.textContent = "ดูรายละเอียด";
@@ -2903,16 +2611,13 @@
           };
           detailTd.appendChild(btn);
           tr.appendChild(detailTd);
-
           tableBodyPending.appendChild(tr);
         });
         updatePaginationPending(data);
       }
-
       function updatePaginationPending(data) {
         const totalPages = Math.ceil(data.length / itemsPerPagePending);
         pageNumbersContainerPending.innerHTML = '';
-
         if (totalPages === 0) {
           firstPageButtonPending.disabled = true;
           prevPageButtonPending.disabled = true;
@@ -2920,10 +2625,8 @@
           lastPageButtonPending.disabled = true;
           return;
         }
-
         const startPage = Math.max(1, currentPagePending - 1);
         const endPage = Math.min(totalPages, currentPagePending + 2);
-
         for (let i = startPage; i <= endPage; i++) {
           const pageNumberButton = document.createElement("button");
           pageNumberButton.className = `pending-page-number ${i === currentPagePending ? 'active' : ''}`;
@@ -2934,30 +2637,26 @@
           };
           pageNumbersContainerPending.appendChild(pageNumberButton);
         }
-
         firstPageButtonPending.disabled = currentPagePending === 1;
         prevPageButtonPending.disabled = currentPagePending === 1;
         nextPageButtonPending.disabled = currentPagePending === totalPages;
         lastPageButtonPending.disabled = currentPagePending === totalPages;
       }
-
       firstPageButtonPending.onclick = () => {
         currentPagePending = 1;
         filterAndRenderTablePending();
       };
-
       prevPageButtonPending.onclick = () => {
         if (currentPagePending > 1) {
           currentPagePending--;
           filterAndRenderTablePending();
         }
       };
-
       nextPageButtonPending.onclick = () => {
         const totalPages = Math.ceil(allDataPending.filter(row => {
           const pendingDept = (row["ค้างหน่วยงาน"] || "").toLowerCase();
-          return Number(row["Vipa"] || 0) > 0 && 
-                 !pendingDept.includes("stock วิภาวดี 62") && 
+          return Number(row["Vipa"] || 0) > 0 &&
+                 !pendingDept.includes("stock วิภาวดี 62") &&
                  !pendingDept.includes("nec_ยกเลิกผลิต");
         }).length / itemsPerPagePending);
         if (currentPagePending < totalPages) {
@@ -2965,17 +2664,15 @@
           filterAndRenderTablePending();
         }
       };
-
       lastPageButtonPending.onclick = () => {
         currentPagePending = Math.ceil(allDataPending.filter(row => {
           const pendingDept = (row["ค้างหน่วยงาน"] || "").toLowerCase();
-          return Number(row["Vipa"] || 0) > 0 && 
-                 !pendingDept.includes("stock วิภาวดี 62") && 
+          return Number(row["Vipa"] || 0) > 0 &&
+                 !pendingDept.includes("stock วิภาวดี 62") &&
                  !pendingDept.includes("nec_ยกเลิกผลิต");
         }).length / itemsPerPagePending);
         filterAndRenderTablePending();
       };
-
       function loadPendingCallsData() {
         fetch(urlPending)
           .then(response => response.json())
@@ -2990,7 +2687,6 @@
             tableBodyPending.innerHTML = '<tr><td colspan="10" class="pending-text-center">เกิดข้อผิดพลาดในการโหลดข้อมูล</td></tr>';
           });
       }
-
       loadData();
     </script>
   </body>
