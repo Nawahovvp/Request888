@@ -1890,6 +1890,7 @@
               return {
                 quantity: quantityInput.value,
                 employeeCode: employeeCode,
+                employeeName: employee ? employee.Name : '',
                 team: employee ? (employee.หน่วยงาน || '') : '',
                 contact: contactInput.value,
                 callNumber: callNumberInput.value,
@@ -1902,71 +1903,99 @@
         }).then(async (result) => {
           if (result.isConfirmed) {
             const formValues = result.value;
-            const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLScEkPW7y1aM-Zb4YmvL_ytjgSssPZMpiEjOSspQZd_vzo7bRA/formResponse";
-            const formData = new URLSearchParams();
-            formData.append("entry.1920472981", row.Material);
-            formData.append("entry.1467523821", row.Description);
-            formData.append("entry.795690319", formValues.quantity);
-            formData.append("entry.794964518", formValues.contact);
-            formData.append("entry.702998988", formValues.employeeCode);
-            formData.append("entry.1899594146", formValues.team);
-            formData.append("entry.1607225659", formValues.callNumber);
-            formData.append("entry.738519154", formValues.callType);
-            Swal.fire({
-              title: 'กำลังบันทึกข้อมูล...',
+            // เพิ่ม popup สรุปข้อมูลที่นี่
+            const summaryResult = await Swal.fire({
+              title: 'สรุปข้อมูลการเบิก',
               html: `
-                <div class="swal2-spinner-container">
-                  <div class="swal2-spinner"></div>
-                  <p>กรุณารอสักครู่...</p>
+                <div style="text-align: left; font-size: 14px;">
+                  <p><strong>Material:</strong> ${row.Material || ''}</p>
+                  <p><strong>Description:</strong> ${row.Description || ''}</p>
+                  <p><strong>จำนวน:</strong> ${formValues.quantity}</p>
+                  <p><strong>รหัสพนักงาน:</strong> ${formValues.employeeCode}</p>
+                  <p><strong>ชื่อพนักงาน:</strong> ${formValues.employeeName}</p>
+                  <p><strong>ทีม:</strong> ${formValues.team}</p>
+                  <p><strong>เบอร์ติดต่อ:</strong> ${formValues.contact}</p>
+                  <p><strong>เลขที่ Call:</strong> ${formValues.callNumber || 'ไม่มี'}</p>
+                  <p><strong>Call Type:</strong> ${formValues.callType || 'ไม่มี'}</p>
+                  <p><strong>หมายเหตุ:</strong> ${formValues.remark || 'ไม่มี'}</p>
                 </div>
               `,
-              showConfirmButton: false,
+              icon: 'info',
+              showCancelButton: true,
+              confirmButtonText: 'ยืนยันการเบิก',
+              cancelButtonText: 'แก้ไข',
               allowOutsideClick: false,
               allowEscapeKey: false
             });
-            try {
-              const response = await fetch(formUrl, {
-                method: "POST",
-                mode: "no-cors",
-                headers: {
-                  "Content-Type": "application/x-www-form-urlencoded"
-                },
-                body: formData.toString()
-              });
-              await new Promise(resolve => setTimeout(resolve, 2000));
+
+            if (summaryResult.isConfirmed) {
+              // ดำเนินการส่งข้อมูล
+              const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLScEkPW7y1aM-Zb4YmvL_ytjgSssPZMpiEjOSspQZd_vzo7bRA/formResponse";
+              const formData = new URLSearchParams();
+              formData.append("entry.1920472981", row.Material);
+              formData.append("entry.1467523821", row.Description);
+              formData.append("entry.795690319", formValues.quantity);
+              formData.append("entry.794964518", formValues.contact);
+              formData.append("entry.702998988", formValues.employeeCode);
+              formData.append("entry.1899594146", formValues.team);
+              formData.append("entry.1607225659", formValues.callNumber);
+              formData.append("entry.738519154", formValues.callType);
               Swal.fire({
-                icon: 'success',
-                title: 'ส่งข้อมูลสำเร็จ!',
-                text: 'ข้อมูลได้ถูกบันทึกเรียบร้อยแล้ว',
-                confirmButtonText: 'OK'
-              }).then((result) => {
-                if (result.isConfirmed) {
-                  Swal.fire({
-                    title: 'กำลังเปลี่ยนหน้า...',
-                    html: `
-                      <div class="swal2-spinner-container">
-                        <div class="swal2-spinner"></div>
-                        <p>กรุณารอสักครู่...</p>
-                      </div>
-                    `,
-                    showConfirmButton: false,
-                    allowOutsideClick: false,
-                    allowEscapeKey: false
-                  });
-                  setTimeout(() => {
-                    Swal.close();
-                    showTab('today');
-                  }, 2000);
-                }
+                title: 'กำลังบันทึกข้อมูล...',
+                html: `
+                  <div class="swal2-spinner-container">
+                    <div class="swal2-spinner"></div>
+                    <p>กรุณารอสักครู่...</p>
+                  </div>
+                `,
+                showConfirmButton: false,
+                allowOutsideClick: false,
+                allowEscapeKey: false
               });
-            } catch (error) {
-              console.error('เกิดข้อผิดพลาดในการส่งฟอร์ม:', error);
-              Swal.fire({
-                icon: 'error',
-                title: 'เกิดข้อผิดพลาด',
-                text: 'ไม่สามารถส่งข้อมูลไปยัง Google Form ได้ กรุณาลองใหม่',
-                confirmButtonText: 'ตกลง'
-              });
+              try {
+                const response = await fetch(formUrl, {
+                  method: "POST",
+                  mode: "no-cors",
+                  headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                  },
+                  body: formData.toString()
+                });
+                await new Promise(resolve => setTimeout(resolve, 2000));
+                Swal.fire({
+                  icon: 'success',
+                  title: 'ส่งข้อมูลสำเร็จ!',
+                  text: 'ข้อมูลได้ถูกบันทึกเรียบร้อยแล้ว',
+                  confirmButtonText: 'OK'
+                }).then((result) => {
+                  if (result.isConfirmed) {
+                    Swal.fire({
+                      title: 'กำลังเปลี่ยนหน้า...',
+                      html: `
+                        <div class="swal2-spinner-container">
+                          <div class="swal2-spinner"></div>
+                          <p>กรุณารอสักครู่...</p>
+                        </div>
+                      `,
+                      showConfirmButton: false,
+                      allowOutsideClick: false,
+                      allowEscapeKey: false
+                    });
+                    setTimeout(() => {
+                      Swal.close();
+                      showTab('today');
+                    }, 2000);
+                  }
+                });
+              } catch (error) {
+                console.error('เกิดข้อผิดพลาดในการส่งฟอร์ม:', error);
+                Swal.fire({
+                  icon: 'error',
+                  title: 'เกิดข้อผิดพลาด',
+                  text: 'ไม่สามารถส่งข้อมูลไปยัง Google Form ได้ กรุณาลองใหม่',
+                  confirmButtonText: 'ตกลง'
+                });
+              }
             }
           }
         });
