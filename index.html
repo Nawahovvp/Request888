@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>ระบบขอเบิกอะไหล่คลังสินค้านวนคร</title>
+    <!-- Content Security Policy to enhance security and reduce flagging -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://unpkg.com https://code.jquery.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https: blob:; connect-src 'self' https://opensheet.elk.sh https://docs.google.com https://script.google.com; frame-src https://docs.google.com;">
     <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet" />
@@ -250,7 +252,7 @@
         z-index: 1;
       }
       #parts tr:hover, #today tr:hover {
-        background-color: #f55f5;
+        background-color: #f5f5f5;
       }
       #parts .table-container, #today .table-container {
         max-height: 80vh;
@@ -391,6 +393,7 @@
       #parts a {
         text-decoration: none;
         color: #2196f3;
+        target="_blank" rel="noopener noreferrer";
       }
       #parts a:hover {
         color: #1565c0;
@@ -1538,13 +1541,13 @@
             }
             if (col === "UrlWeb" && value && value.startsWith("https://drive.google.com/uc?")) {
               td.innerHTML = `
-                <a href="${value}" target="_blank">
+                <a href="${value}" target="_blank" rel="noopener noreferrer">
                  <button class="view-image-btn">ดูรูป</button>
                 </a>
               `;
             } else if (col === "UrlWeb" && value) {
               td.innerHTML = `
-                <a href="${value}" target="_blank">
+                <a href="${value}" target="_blank" rel="noopener noreferrer">
                   <button class="view-image-btn">ดูรูป</button>
                 </a>
               `;
@@ -1918,6 +1921,8 @@
                   <p><strong>เลขที่ Call:</strong> ${formValues.callNumber || 'ไม่มี'}</p>
                   <p><strong>Call Type:</strong> ${formValues.callType || 'ไม่มี'}</p>
                   <p><strong>หมายเหตุ:</strong> ${formValues.remark || 'ไม่มี'}</p>
+                  <hr style="margin: 10px 0;">
+                  <p style="color: #ff9800; font-size: 12px;"><strong>⚠️ ข้อมูลนี้จะถูกส่งไปยัง Google Forms เพื่อบันทึกการเบิกอะไหล่ โดยระบบจะไม่เก็บข้อมูลส่วนตัวเพิ่มเติม</strong></p>
                 </div>
               `,
               icon: 'info',
