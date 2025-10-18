@@ -1556,6 +1556,22 @@
           tableBody.appendChild(tr);
         });
       }
+      async function loadEmployeeData() {
+        const employeeSheetID = "1eqVoLsZxGguEbRCC5rdI4iMVtQ7CK4T3uXRdx8zE3uw";
+        const employeeSheetName = "Employee";
+        const employeeUrl = `https://opensheet.elk.sh/${employeeSheetID}/${employeeSheetName}`;
+        try {
+          const response = await fetch(employeeUrl);
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          const data = await response.json();
+          return data;
+        } catch (error) {
+          console.error("Error loading employee data:", error);
+          return [];
+        }
+      }
       async function showRequisitionDialog(row) {
         document.body.style.overflow = 'hidden';
         const history = {
@@ -1565,6 +1581,7 @@
           callNumber: getFromLocalStorage('callNumber'),
           callType: getFromLocalStorage('callType'),
         };
+        const employeeData = await loadEmployeeData();
         Swal.fire({
           title: '📋 เบิกอะไหล่นวนคร',
           html: `
@@ -1616,6 +1633,15 @@
                 border: 2px solid red !important;
                 box-shadow: 0 0 5px rgba(255, 0, 0, 0.5) !important;
               }
+              #swal-employee-name-display, #swal-team-display {
+                color: #4caf50 !important;
+                font-weight: bold !important;
+                margin: 4px 0 !important;
+                padding: 4px !important;
+                background: #e8f5e8 !important;
+                border-radius: 4px !important;
+                text-align: left !important;
+              }
             </style>
             <div class="swal2-label">📦 Material: ${row.Material || ''}</div>
             <div class="swal2-label">📝 Description: ${row.Description || ''}</div>
@@ -1626,10 +1652,10 @@
             <input id="swal-employee-code" class="swal2-input" placeholder="7xxxxxx">
             <div id="employee-code-history" class="autocomplete-items" style="display:none;"></div>
             <span id="swal-employee-code-error" class="error-message"></span>
+            <label class="swal2-label">👤 ชื่อพนักงาน</label>
+            <div id="swal-employee-name-display"></div>
             <label class="swal2-label">👥 ทีม</label>
-            <input id="swal-team" class="swal2-input" placeholder="ทีม">
-            <div id="team-history" class="autocomplete-items" style="display:none;"></div>
-            <span id="swal-team-error" class="error-message"></span>
+            <div id="swal-team-display"></div>
             <label class="swal2-label">📞 เบอร์ติดต่อ</label>
             <input id="swal-contact" class="swal2-input" placeholder="เช่น 08xxxxxxxx">
             <div id="contact-history" class="autocomplete-items" style="display:none;"></div>
@@ -1660,7 +1686,6 @@
           didOpen: () => {
             const quantityInput = document.getElementById('swal-quantity');
             const employeeCodeInput = document.getElementById('swal-employee-code');
-            const teamInput = document.getElementById('swal-team');
             const contactInput = document.getElementById('swal-contact');
             const callNumberInput = document.getElementById('swal-call-number');
             const callTypeInput = document.getElementById('swal-call-type');
@@ -1693,16 +1718,12 @@
                 }, 200);
               });
             }
-            setupAutocomplete(employeeCodeInput, 'employeeCode', 'employee-code-history');
-            setupAutocomplete(teamInput, 'team', 'team-history');
             setupAutocomplete(contactInput, 'contact', 'contact-history');
             setupAutocomplete(callNumberInput, 'callNumber', 'call-number-history');
             setupAutocomplete(callTypeInput, 'callType', 'call-type-history');
-            const lastTeam = getFromLocalStorage('team')[0];
             const lastContact = getFromLocalStorage('contact')[0];
-            if (lastTeam) teamInput.value = lastTeam;
             if (lastContact) contactInput.value = lastContact;
-            const inputs = [quantityInput, employeeCodeInput, teamInput, contactInput, callNumberInput, callTypeInput, remarkInput];
+            const inputs = [quantityInput, employeeCodeInput, contactInput, callNumberInput, callTypeInput, remarkInput];
             inputs.forEach(input => {
               input.addEventListener('focus', () => {
                 const popup = document.querySelector('.swal2-popup');
@@ -1718,7 +1739,6 @@
               const errors = {
                 quantityError: document.getElementById('swal-quantity-error'),
                 employeeCodeError: document.getElementById('swal-employee-code-error'),
-                teamError: document.getElementById('swal-team-error'),
                 contactError: document.getElementById('swal-contact-error'),
                 callNumberError: document.getElementById('swal-call-number-error'),
                 callTypeError: document.getElementById('swal-call-type-error'),
@@ -1736,12 +1756,23 @@
               if (!employeeCode || !/^\d{7}$/.test(employeeCode) || employeeCode[0] !== '7') {
                 errors.employeeCodeError.textContent = 'รหัสพนักงานต้องเป็นตัวเลข 7 หลัก เริ่มด้วย 7 (เช่น 7512411)';
                 employeeCodeInput.classList.add('invalid-input');
+                document.getElementById('swal-employee-name-display').textContent = '';
+                document.getElementById('swal-team-display').textContent = '';
                 isValid = false;
-              }
-              if (!teamInput.value.trim()) {
-                errors.teamError.textContent = 'กรุณากรอกทีม';
-                teamInput.classList.add('invalid-input');
-                isValid = false;
+              } else {
+                // Check against employee data
+                const employee = employeeData.find(e => e.IDRec && e.IDRec.toString().trim() === employeeCode);
+                if (!employee || !employee.Name) {
+                  errors.employeeCodeError.textContent = 'ไม่พบรหัสพนักงานนี้ในระบบ';
+                  employeeCodeInput.classList.add('invalid-input');
+                  document.getElementById('swal-employee-name-display').textContent = '';
+                  document.getElementById('swal-team-display').textContent = '';
+                  isValid = false;
+                } else {
+                  document.getElementById('swal-employee-name-display').textContent = `${employee.Name}`;
+                  document.getElementById('swal-team-display').textContent = `${employee.หน่วยงาน || ''}`;
+                  errors.employeeCodeError.textContent = '';
+                }
               }
               if (!contactInput.value || !/^(0|\+66)[6-9][0-9]{7,8}$/.test(contactInput.value)) {
                 errors.contactError.textContent = 'กรุณากรอกเบอร์ติดต่อที่ถูกต้อง (เช่น 08xxxxxxxx)';
@@ -1772,7 +1803,6 @@
             }
             quantityInput.addEventListener('input', validateInputs);
             employeeCodeInput.addEventListener('input', validateInputs);
-            teamInput.addEventListener('input', validateInputs);
             contactInput.addEventListener('input', validateInputs);
             callNumberInput.addEventListener('input', validateInputs);
             callTypeInput.addEventListener('change', validateInputs);
@@ -1786,7 +1816,6 @@
           preConfirm: () => {
             const quantityInput = document.getElementById('swal-quantity');
             const employeeCodeInput = document.getElementById('swal-employee-code');
-            const teamInput = document.getElementById('swal-team');
             const contactInput = document.getElementById('swal-contact');
             const callNumberInput = document.getElementById('swal-call-number');
             const callTypeInput = document.getElementById('swal-call-type');
@@ -1794,13 +1823,12 @@
             const errors = {
               quantityError: document.getElementById('swal-quantity-error'),
               employeeCodeError: document.getElementById('swal-employee-code-error'),
-              teamError: document.getElementById('swal-team-error'),
               contactError: document.getElementById('swal-contact-error'),
               callNumberError: document.getElementById('swal-call-number-error'),
               callTypeError: document.getElementById('swal-call-type-error'),
               remarkError: document.getElementById('swal-remark-error')
             };
-            [quantityInput, employeeCodeInput, teamInput, contactInput, callNumberInput, callTypeInput, remarkInput].forEach(input => {
+            [quantityInput, employeeCodeInput, contactInput, callNumberInput, callTypeInput, remarkInput].forEach(input => {
               input.classList.remove('invalid-input');
             });
             Object.values(errors).forEach(el => el.textContent = '');
@@ -1816,11 +1844,13 @@
               errors.employeeCodeError.textContent = 'รหัสพนักงานต้องเป็นตัวเลข 7 หลัก เริ่มด้วย 7 (เช่น 7512411)';
               employeeCodeInput.classList.add('invalid-input');
               isValid = false;
-            }
-            if (!teamInput.value.trim()) {
-              errors.teamError.textContent = 'กรุณากรอกทีม';
-              teamInput.classList.add('invalid-input');
-              isValid = false;
+            } else {
+              const employee = employeeData.find(e => e.IDRec && e.IDRec.toString().trim() === employeeCode);
+              if (!employee || !employee.Name) {
+                errors.employeeCodeError.textContent = 'ไม่พบรหัสพนักงานนี้ในระบบ';
+                employeeCodeInput.classList.add('invalid-input');
+                isValid = false;
+              }
             }
             if (!contactInput.value || !/^(0|\+66)[6-9][0-9]{7,8}$/.test(contactInput.value)) {
               errors.contactError.textContent = 'กรุณากรอกเบอร์ติดต่อที่ถูกต้อง (เช่น 08xxxxxxxx)';
@@ -1848,8 +1878,8 @@
               }
             }
             if (isValid) {
+              const employee = employeeData.find(e => e.IDRec && e.IDRec.toString().trim() === employeeCode);
               saveToLocalStorage('employeeCode', employeeCode);
-              saveToLocalStorage('team', teamInput.value);
               saveToLocalStorage('contact', contactInput.value);
               if (callNumberInput.value) {
                 saveToLocalStorage('callNumber', callNumberInput.value);
@@ -1860,7 +1890,7 @@
               return {
                 quantity: quantityInput.value,
                 employeeCode: employeeCode,
-                team: teamInput.value,
+                team: employee ? (employee.หน่วยงาน || '') : '',
                 contact: contactInput.value,
                 callNumber: callNumberInput.value,
                 callType: callTypeInput.value,
@@ -2367,7 +2397,7 @@
             (row["Code"] || "").toLowerCase().includes(keyword) ||
             (row["Material Description"] || "").toLowerCase().includes(keyword) ||
             (row["ชื่อช่าง"] || "").toLowerCase().includes(keyword) ||
-            (row["ทีม"] || "").toLowerCase().includes(keyword) ||
+            (row["หน่วยงาน"] || "").toLowerCase().includes(keyword) ||
             (row["หมายเหตุ"] || "").toLowerCase().includes(keyword)
           );
         });
