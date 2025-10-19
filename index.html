@@ -1906,6 +1906,19 @@
         }).then(async (result) => {
           if (result.isConfirmed) {
             const formValues = result.value;
+            const vibhavadiValue = parseFloat(row["วิภาวดี"]) || 0;
+            const quantity = parseFloat(formValues.quantity) || 0;
+            // เช็คเงื่อนไขเตือน
+            if (quantity <= vibhavadiValue) {
+              await Swal.fire({
+                icon: 'warning',
+                title: '⚠️ คำเตือน',
+                text: `ที่คลังวิภาวดีมีอะไหล่ ${vibhavadiValue.toLocaleString()} ชิ้น (จำนวนที่เบิก ${quantity} ชิ้น)`,
+                confirmButtonText: 'ยืนยันดำเนินการต่อ',
+                allowOutsideClick: false,
+                allowEscapeKey: false
+              });
+            }
             // เพิ่ม popup สรุปข้อมูลที่นี่
             const summaryResult = await Swal.fire({
               title: 'สรุปข้อมูลการเบิก',
@@ -1931,7 +1944,6 @@
               allowOutsideClick: false,
               allowEscapeKey: false
             });
-
             if (summaryResult.isConfirmed) {
               // ดำเนินการส่งข้อมูล
               const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLScEkPW7y1aM-Zb4YmvL_ytjgSssPZMpiEjOSspQZd_vzo7bRA/formResponse";
