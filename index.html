@@ -4,8 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>ระบบขอเบิกอะไหล่คลังสินค้านวนคร</title>
-    <!-- Content Security Policy to enhance security and reduce flagging -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://unpkg.com https://code.jquery.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https: blob:; connect-src 'self' https://opensheet.elk.sh https://docs.google.com https://script.google.com; frame-src https://docs.google.com;">
+    <!-- Enhanced Content Security Policy to reduce phishing risks -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://unpkg.com https://code.jquery.com https://opensheet.elk.sh https://docs.google.com https://script.google.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https: blob:; connect-src 'self' https://opensheet.elk.sh https://docs.google.com https://script.google.com; frame-src https://docs.google.com; object-src 'none'; base-uri 'self'; form-action 'self' https://docs.google.com;">
+    <!-- Additional security headers via meta -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <!-- Verification meta to help with Safe Browsing (add your site verification if available) -->
+    <meta name="google-site-verification" content="your-verification-token-if-any">
+    <!-- Clear description to indicate legitimacy -->
+    <meta name="description" content="ระบบภายในสำหรับขอเบิกอะไหล่คลังสินค้านวนคร - เครื่องมือสำหรับพนักงานเท่านั้น ไม่ใช่เว็บไซต์ภายนอก">
     <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet" />
@@ -1162,6 +1171,17 @@
         background-color: #e6f2ff;
         color: #0056b3;
       }
+      /* Disclaimer banner for legitimacy */
+      .disclaimer {
+        background-color: #fff3cd;
+        border: 1px solid #ffeaa7;
+        color: #856404;
+        padding: 10px;
+        margin-bottom: 15px;
+        border-radius: 8px;
+        text-align: center;
+        font-size: 14px;
+      }
     </style>
   </head>
   <body>
@@ -1172,6 +1192,10 @@
       <span>กำลังโหลดข้อมูล...</span>
     </div>
     <div class="container">
+      <!-- Added disclaimer to clarify this is an internal tool -->
+      <div class="disclaimer">
+        ⚠️ ระบบนี้สำหรับคลังสินค้าเท่านั้น | ข้อมูลถูกส่งไปยัง Google Forms อย่างปลอดภัย | หากมีข้อสงสัย ติดต่อ คลังสินค้า
+      </div>
       <div class="tabs">
         <button class="tab-button active" id="tab-parts" onclick="showTab('parts')">
           ค้นหาอะไหล่เพื่อเบิก
