@@ -25,46 +25,398 @@
         padding: 0;
         background-color: #eceff1;
         font-family: "Kanit", sans-serif;
+        transition: background-color 0.3s ease, color 0.3s ease;
       }
-      .header {
+      /* Dark Mode Styles */
+      body.dark-mode {
+        background-color: #121212;
+        color: #e0e0e0;
+      }
+      body.dark-mode .login-modal {
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+      body.dark-mode .login-content {
+        background: linear-gradient(135deg, #2c3e50, #34495e);
+        color: #ecf0f1;
+      }
+      body.dark-mode .login-content input {
+        background-color: #34495e;
+        border-color: #555;
+        color: #ecf0f1;
+      }
+      body.dark-mode .login-content input:focus {
+        border-color: #1abc9c;
+        box-shadow: 0 0 5px rgba(26, 188, 156, 0.3);
+      }
+      body.dark-mode .login-content button {
+        background: linear-gradient(135deg, #1abc9c, #16a085);
+      }
+      body.dark-mode .login-content button:hover {
+        background: linear-gradient(135deg, #16a085, #1abc9c);
+      }
+      body.dark-mode .error {
+        background: #7f1d1d;
+        color: #fca5a5;
+      }
+      body.dark-mode .header {
+        background: linear-gradient(135deg, #2c3e50, #34495e);
+        color: #ecf0f1;
+        border-bottom-color: #1abc9c;
+      }
+      body.dark-mode .header h1 {
+        color: #ecf0f1;
+      }
+      body.dark-mode .user-name-small {
+        color: #ff6b9d;
+      }
+      body.dark-mode .qrcode-header-btn {
+        background: linear-gradient(135deg, #1abc9c, #16a085);
+      }
+      body.dark-mode .qrcode-header-btn:hover {
+        background: linear-gradient(135deg, #16a085, #1abc9c);
+      }
+      body.dark-mode .logout-btn {
+        background: linear-gradient(135deg, #e74c3c, #c0392b);
+      }
+      body.dark-mode .logout-btn:hover {
+        background: linear-gradient(135deg, #c0392b, #a93226);
+      }
+      body.dark-mode .setting-btn {
+        background: linear-gradient(135deg, #f39c12, #e67e22);
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 14px;
+        margin-left: 10px;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+      body.dark-mode .setting-btn:hover {
+        background: linear-gradient(135deg, #e67e22, #d68910);
+        transform: translateY(-1px);
+      }
+      body.dark-mode .container {
+        background-color: #2c3e50;
+        color: #ecf0f1;
+      }
+      body.dark-mode .disclaimer {
+        background-color: #7f8c8d;
+        border-color: #95a5a6;
+        color: #ecf0f1;
+      }
+      body.dark-mode .tab-button {
+        background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+      }
+      body.dark-mode .tab-button:hover {
+        background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+      }
+      body.dark-mode .tab-button.active {
+        background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+      }
+      body.dark-mode .tab-content {
+        background-color: #34495e;
+      }
+      body.dark-mode #parts, body.dark-mode #today, body.dark-mode #all, body.dark-mode #pending-calls {
+        background-color: #34495e;
+      }
+      body.dark-mode table {
+        background: #2c3e50;
+      }
+      body.dark-mode th {
+        background: linear-gradient(135deg, #1abc9c, #16a085);
+        color: #ecf0f1;
+      }
+      body.dark-mode td {
+        border-color: #555;
+        color: #e0e0e0;
+      }
+      body.dark-mode tr:hover {
+        background-color: #3d566e;
+      }
+      body.dark-mode .pagination button {
+        background: linear-gradient(135deg, #1abc9c, #16a085);
+      }
+      body.dark-mode .pagination button:hover {
+        background: linear-gradient(135deg, #16a085, #1abc9c);
+      }
+      body.dark-mode .pagination .active {
+        background: linear-gradient(135deg, #e67e22, #d68910);
+      }
+      body.dark-mode .requisition-button, body.dark-mode .detail-button, body.dark-mode .image-button {
+        background: linear-gradient(135deg, #1abc9c, #16a085);
+      }
+      body.dark-mode .requisition-button:hover, body.dark-mode .detail-button:hover, body.dark-mode .image-button:hover {
+        background: linear-gradient(135deg, #16a085, #1abc9c);
+      }
+      body.dark-mode .modal {
+        background: rgba(0, 0, 0, 0.8);
+      }
+      body.dark-mode .modal-content {
+        background: linear-gradient(to bottom right, #2c3e50, #34495e);
+        color: #ecf0f1;
+      }
+      body.dark-mode #modalContent span.label {
+        color: #1abc9c;
+      }
+      body.dark-mode .footer {
+        background: linear-gradient(135deg, #1abc9c, #16a085);
+      }
+      body.dark-mode .swal2-popup {
+        background: #2c3e50 !important;
+        color: #ecf0f1 !important;
+      }
+      body.dark-mode .swal2-backdrop {
+        background-color: rgba(0, 0, 0, 0.8) !important;
+      }
+      body.dark-mode .autocomplete-items {
+        background-color: #34495e;
+        border-color: #555;
+      }
+      body.dark-mode .autocomplete-item:hover {
+        background-color: #3d566e;
+      }
+      /* Light Mode Styles (default) - existing styles remain */
+      body.light-mode {
+        background-color: #eceff1;
+        color: #1a1a1a;
+      }
+      /* Ensure light mode doesn't override dark-specific */
+      body.light-mode .header {
+        background: linear-gradient(135deg, #fff3e0, #ffebee);
+        color: #1a3c87;
+      }
+      /* ... other light overrides if needed, but mostly default */
+      /* Login Modal Styles */
+      .login-modal {
+        display: none;
+        position: fixed;
+        z-index: 10000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(5px);
+        transition: background-color 0.3s ease;
+      }
+      .login-modal.active {
         display: flex;
         justify-content: center;
         align-items: center;
+      }
+      .login-content {
+        background: linear-gradient(135deg, #ffffff, #f5f7fa);
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        width: 90%;
+        max-width: 400px;
+        text-align: center;
+        animation: fadeInUp 0.4s ease;
+        position: relative;
+        transition: background 0.3s ease;
+      }
+      .login-content::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(135deg, #42a5f5, #2196f3);
+        border-radius: 12px 12px 0 0;
+      }
+      .login-content h2 {
         color: #1a3c87;
-        padding: 10px 0;
+        margin-bottom: 20px;
+        font-family: "Itim", cursive;
+        font-size: 24px;
+        transition: color 0.3s ease;
+      }
+      .login-content input {
+        width: 100%;
+        padding: 12px;
+        margin: 10px 0;
+        border: 1px solid #e0e0e0;
+        border-radius: 6px;
+        font-size: 16px;
+        box-sizing: border-box;
+        transition: all 0.3s ease;
+        background-color: white;
+      }
+      .login-content input:focus {
+        border-color: #2196f3;
+        outline: none;
+        box-shadow: 0 0 5px rgba(33, 150, 243, 0.3);
+        transform: translateY(-1px);
+      }
+      .login-content .password-container {
+        position: relative;
+      }
+      .login-content .password-container i {
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        color: #666;
+        font-size: 16px;
+        transition: color 0.3s ease;
+      }
+      .login-content .password-container i:hover {
+        color: #2196f3;
+      }
+      .login-content .remember-me {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 15px 0;
+        font-size: 14px;
+        text-align: left;
+        padding: 0 4px;
+      }
+      .login-content .remember-me input[type="checkbox"] {
+        margin-right: 8px;
+        transform: scale(1.2);
+        margin-left: 0;
+      }
+      .login-content .remember-me label {
+        cursor: pointer;
+        font-family: "Poppins", sans-serif;
+        font-weight: 400;
+        margin: 0;
+        flex-shrink: 0;
+      }
+      .login-content button {
+        width: 100%;
+        padding: 12px;
+        background: linear-gradient(135deg, #42a5f5, #2196f3);
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        cursor: pointer;
+        margin-top: 10px;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      .login-content button:hover {
+        background: linear-gradient(135deg, #1976d2, #1565c0);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+      }
+      .login-content button:active {
+        transform: translateY(0);
+      }
+      .login-content .error {
+        color: #ef5350;
+        font-size: 14px;
+        margin-top: 10px;
+        display: none;
+        background: #ffebee;
+        padding: 8px;
+        border-radius: 4px;
+        border-left: 3px solid #ef5350;
+        transition: background 0.3s ease, color 0.3s ease;
+      }
+      .logout-btn {
+        background: linear-gradient(135deg, #f44336, #d32f2f);
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 14px;
+        margin-left: 10px;
+        transition: all 0.3s ease;
+      }
+      .logout-btn:hover {
+        background: linear-gradient(135deg, #d32f2f, #b71c1c);
+        transform: translateY(-1px);
+      }
+      .app-content {
+        display: none;
+      }
+      .app-content.logged-in {
+        display: block;
+      }
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #1a3c87;
+        padding: 10px 20px;
         border-bottom: 2px solid #ff80ab;
         border-radius: 12px;
         box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
         font-family: "Itim", cursive;
-        overflow: hidden;
         position: relative;
         background: linear-gradient(135deg, #fff3e0, #ffebee);
         margin: 10px auto;
         max-width: 1500px;
-        height: 52px;
-        transition: transform 0.3s ease;
+        transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
       }
       .header:hover {
         transform: translateY(-2px);
       }
-      @keyframes slideRight {
-        0% { transform: translateX(-100%); }
-        100% { transform: translateX(100%); }
-      }
-      h1 {
+      .header h1 {
         color: #1a3c87;
         margin: 0;
         font-size: 30px;
         font-weight: normal;
         text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.1);
-        animation: slideRight 20s linear infinite;
         white-space: nowrap;
-        position: absolute;
-  left: 0; /* ✅ เริ่มจากซ้ายสุด */
-  width: 100%; /* ✅ ให้ข้อความใช้ความกว้างเต็ม */
-  text-align: center; /* ✅ จัดกึ่งกลาง */
-  animation: slideRight 7s linear infinite;
-  white-space: nowrap;
+        text-align: center;
+        flex-grow: 1;
+        transition: color 0.3s ease;
+      }
+      .header-right {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 2px;
+      }
+      .user-name-small {
+        font-size: 12px;
+        color: #e91e63;
+        font-weight: bold;
+        text-align: right;
+        white-space: nowrap;
+        transition: color 0.3s ease;
+      }
+      .qrcode-header-btn {
+        background: linear-gradient(135deg, #4caf50, #388e3c);
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 14px;
+        margin-right: 10px;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+      .qrcode-header-btn:hover {
+        background: linear-gradient(135deg, #388e3c, #4caf50);
+        transform: translateY(-1px);
       }
       .container {
         max-width: 1500px;
@@ -74,6 +426,7 @@
         border-radius: 12px;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         font-family: "Kanit", sans-serif;
+        transition: background-color 0.3s ease, color 0.3s ease;
       }
       .tabs {
         display: flex;
@@ -82,28 +435,43 @@
       }
       .tab-button {
         flex: 1;
-        padding: 10px;
+        padding: 12px 16px;
         text-align: center;
-        background: linear-gradient(135deg, #42a5f5, #2196f3);
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         color: white;
         cursor: pointer;
         border: none;
         outline: none;
-        font-size: 18px;
-        border-radius: 10px;
-        transition: all 0.3s ease;
-        font-family: "Kanit", sans-serif;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        font-size: 16px;
+        font-weight: 500;
+        border-radius: 50px;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        position: relative;
+        overflow: hidden;
+      }
+      .tab-button::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.5s;
+      }
+      .tab-button:hover::before {
+        left: 100%;
       }
       .tab-button:hover {
-        background: linear-gradient(135deg, #1976d2, #1565c0);
-        transform: translateY(-2px);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+        transform: translateY(-3px) scale(1.02);
+        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
       }
       .tab-button.active {
-        background: linear-gradient(135deg, #f06292, #ec407a);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-        transform: translateY(-2px);
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        box-shadow: 0 8px 25px rgba(245, 87, 108, 0.4);
+        transform: translateY(-3px) scale(1.02);
       }
       .tab-content {
         display: none;
@@ -112,6 +480,7 @@
         border-radius: 10px;
         margin-top: 10px;
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        transition: background-color 0.3s ease;
       }
       .tab-content.active {
         display: block;
@@ -131,6 +500,10 @@
         z-index: 9999;
         display: none;
       }
+      body.dark-mode .loading {
+        background: rgba(0, 0, 0, 0.8);
+        color: #1abc9c;
+      }
       iframe {
         width: 100%;
         height: 800px;
@@ -145,62 +518,21 @@
         margin-top: 20px;
         border-radius: 10px;
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        transition: background 0.3s ease;
       }
       .footer p {
         margin: 0;
         font-size: 14px;
       }
       .social-buttons {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-        margin-top: 10px;
-        padding: 10px;
-      }
-      .social-button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        color: white;
-        font-size: 18px;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-      }
-      .social-button:hover {
-        transform: scale(1.1);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      }
-      .social-button.facebook {
-        background: linear-gradient(135deg, #3b5998, #2a4373);
-      }
-      .social-button.tiktok {
-        background: linear-gradient(135deg, #000000, #333333);
-      }
-      .social-button.telegram {
-        background: linear-gradient(135deg, #26A5E4, #1b87b9);
-      }
-      .social-button.qrcode {
-        background: linear-gradient(135deg, #4caf50, #388e3c);
-      }
-      @media screen and (max-width: 360px) {
-        .social-button {
-          width: 36px;
-          height: 36px;
-          font-size: 16px;
-        }
-        .social-buttons {
-          gap: 8px;
-        }
+        display: none; /* ซ่อน social-buttons เนื่องจากย้าย QR ไป header แล้ว */
       }
       #parts, #today {
         font-family: "Poppins", sans-serif;
         background-color: #f0f4f8;
         padding: 15px;
         border-radius: 8px;
+        transition: background-color 0.3s ease;
       }
       #parts #searchContainer, #today #searchContainer {
         display: flex;
@@ -214,12 +546,22 @@
         border-radius: 6px;
         border: 1px solid #e0e0e0;
         font-size: 15px;
-        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+        background-color: white;
       }
       #parts #searchInput:focus, #today #searchInputToday:focus {
         border-color: #2196f3;
         box-shadow: 0 0 5px rgba(33, 150, 243, 0.3);
         outline: none;
+      }
+      body.dark-mode #parts #searchInput, body.dark-mode #today #searchInputToday {
+        background-color: #34495e;
+        border-color: #555;
+        color: #ecf0f1;
+      }
+      body.dark-mode #parts #searchInput:focus, body.dark-mode #today #searchInputToday:focus {
+        border-color: #1abc9c;
+        box-shadow: 0 0 5px rgba(26, 188, 156, 0.3);
       }
       #parts .refresh-button {
         background: linear-gradient(135deg, #42a5f5, #2196f3);
@@ -246,12 +588,29 @@
         box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
         border-radius: 8px;
         overflow: hidden;
+        transition: background 0.3s ease;
+      }
+      body.dark-mode #parts table,
+      body.dark-mode #today table {
+        background: #2c3e50;
       }
       #parts th, #parts td, #today th, #today td {
         padding: 10px;
         text-align: center;
         border: 1px solid #e0e0e0;
         font-size: 15px;
+        transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+      }
+      body.dark-mode #parts th,
+      body.dark-mode #today th {
+        background: linear-gradient(135deg, #1abc9c, #16a085);
+        color: #ecf0f1;
+        border-color: #555;
+      }
+      body.dark-mode #parts td,
+      body.dark-mode #today td {
+        border-color: #555;
+        color: #e0e0e0;
       }
       #parts th, #today th {
         background: linear-gradient(135deg, #2196f3, #1976d2);
@@ -263,12 +622,21 @@
       #parts tr:hover, #today tr:hover {
         background-color: #f5f5f5;
       }
+      body.dark-mode #parts tr:hover,
+      body.dark-mode #today tr:hover {
+        background-color: #3d566e;
+      }
       #parts .table-container, #today .table-container {
         max-height: 80vh;
         overflow-y: auto;
         overflow-x: auto;
         background: white;
         border-radius: 8px;
+        transition: background 0.3s ease;
+      }
+      body.dark-mode #parts .table-container,
+      body.dark-mode #today .table-container {
+        background: #2c3e50;
       }
       #parts .pagination {
         display: flex;
@@ -322,6 +690,9 @@
       #parts td:nth-child(3), #today td:nth-child(4) {
         text-align: left;
       }
+      #parts td:nth-child(4) {
+        text-align: left;
+      }
       #parts th:nth-child(4), #parts td:nth-child(4) {
         min-width: 300px;
       }
@@ -363,6 +734,33 @@
         transform: translateY(1px);
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       }
+      /* New style for image button, copied from requisition-button but with blue gradient */
+      #parts .image-button {
+    background: linear-gradient(135deg, #2196f3, #1976d2);
+    color: white;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+  }
+  #parts .image-button:hover {
+    background: linear-gradient(135deg, #1565c0, #0d47a1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+  #parts .image-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.3);
+  }
+  #parts .image-button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
       #parts .swal2-input {
         margin: 4px 0;
         width: 100%;
@@ -371,6 +769,13 @@
         font-size: 14px;
         padding: 6px;
         height: 36px;
+        transition: background-color 0.3s ease;
+        background-color: white;
+      }
+      body.dark-mode #parts .swal2-input {
+        background-color: #34495e;
+        color: #ecf0f1;
+        border-color: #555;
       }
       #parts .swal2-select {
         margin: 4px 0;
@@ -380,6 +785,13 @@
         border-radius: 6px;
         font-size: 14px;
         height: 36px;
+        transition: background-color 0.3s ease;
+        background-color: white;
+      }
+      body.dark-mode #parts .swal2-select {
+        background-color: #34495e;
+        color: #ecf0f1;
+        border-color: #555;
       }
       #parts .swal2-label {
         font-weight: 500;
@@ -403,9 +815,16 @@
         text-decoration: none;
         color: #2196f3;
         target="_blank" rel="noopener noreferrer";
+        transition: color 0.3s ease;
+      }
+      body.dark-mode #parts a {
+        color: #1abc9c;
       }
       #parts a:hover {
         color: #1565c0;
+      }
+      body.dark-mode #parts a:hover {
+        color: #16a085;
       }
       #parts img {
         transition: transform 0.2s ease;
@@ -434,7 +853,10 @@
         backdrop-filter: blur(4px);
         opacity: 0;
         transform: scale(0.95);
-        transition: opacity 0.3s ease, transform 0.3s ease;
+        transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+      }
+      body.dark-mode #today .modal {
+        background: rgba(0, 0, 0, 0.8);
       }
       #today .modal-content {
         position: fixed;
@@ -450,6 +872,11 @@
         animation: fadeIn 0.3s ease;
         font-family: "Poppins", sans-serif;
         z-index: 1001;
+        transition: background 0.3s ease;
+      }
+      body.dark-mode #today .modal-content {
+        background: linear-gradient(to bottom right, #2c3e50, #34495e);
+        color: #ecf0f1;
       }
       @keyframes fadeIn {
         from { opacity: 0; transform: scale(0.95); }
@@ -463,6 +890,9 @@
         cursor: pointer;
         transition: color 0.3s;
       }
+      body.dark-mode #today .close {
+        color: #bdc3c7;
+      }
       #today .close:hover {
         color: #e53935;
       }
@@ -472,6 +902,10 @@
       #today #modalContent div {
         padding: 10px 0;
         border-bottom: 1px solid #eceff1;
+        transition: border-bottom-color 0.3s ease;
+      }
+      body.dark-mode #today #modalContent div {
+        border-bottom-color: #555;
       }
       #today #modalContent div:last-child {
         border-bottom: none;
@@ -482,22 +916,38 @@
         font-weight: 500;
         color: #2196f3;
         font-size: 15px;
+        transition: color 0.3s ease;
+      }
+      body.dark-mode #today #modalContent span.label {
+        color: #1abc9c;
       }
       #today #modalContent span.value {
         font-size: 15px;
         color: #37474f;
+        transition: color 0.3s ease;
+      }
+      body.dark-mode #today #modalContent span.value {
+        color: #bdc3c7;
       }
       #today .modal-content h2 {
         color: #e91e63;
         font-size: 20px;
         font-weight: bold;
         margin-bottom: 15px;
+        transition: color 0.3s ease;
+      }
+      body.dark-mode #today .modal-content h2 {
+        color: #ff6b9d;
       }
       #today .spinner-container {
         text-align: center;
         padding: 40px 20px;
         color: #2196f3;
         font-size: 15px;
+        transition: color 0.3s ease;
+      }
+      body.dark-mode #today .spinner-container {
+        color: #1abc9c;
       }
       #today .spinner {
         width: 40px;
@@ -507,6 +957,11 @@
         border-radius: 50%;
         animation: spin 1s linear infinite;
         margin: 0 auto 10px auto;
+        transition: border-color 0.3s ease;
+      }
+      body.dark-mode #today .spinner {
+        border-color: #555;
+        border-top-color: #1abc9c;
       }
       @keyframes spin {
         0% { transform: rotate(0deg); }
@@ -521,6 +976,11 @@
         background-color: #ffebee;
         border-radius: 8px;
         margin-bottom: 15px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      body.dark-mode #error-container, body.dark-mode #error-container-today {
+        background-color: #7f1d1d;
+        color: #fca5a5;
       }
       #retry-button, #retry-button-today {
         background: linear-gradient(135deg, #ff7043, #f44336);
@@ -539,15 +999,49 @@
       }
       .swal2-container {
         position: fixed !important;
-        z-index: 9999;
-        overflow-y: auto;
-        max-height: 80vh;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        z-index: 99998 !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        overflow: hidden !important;
+      }
+      .swal2-backdrop {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        background-color: rgba(0, 0, 0, 0.5) !important;
+        backdrop-filter: blur(8px) !important;
+        z-index: 99997 !important;
+      }
+      body.dark-mode .swal2-backdrop {
+        background-color: rgba(0, 0, 0, 0.8) !important;
       }
       .swal2-popup {
-        max-width: 320px !important;
+        position: relative !important;
+        margin: 0 !important;
+        transform: none !important;
+        max-width: 90vw !important;
+        width: auto !important;
+        max-height: 90vh !important;
+        overflow-y: auto !important;
         padding: 15px !important;
         font-size: 14px !important;
         border-radius: 10px !important;
+        z-index: 99999 !important;
+        background: white !important;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+        color: #333 !important;
+        transition: background 0.3s ease, color 0.3s ease !important;
+      }
+      body.dark-mode .swal2-popup {
+        background: #2c3e50 !important;
+        color: #ecf0f1 !important;
       }
       .swal2-content {
         padding-bottom: 150px !important;
@@ -555,6 +1049,10 @@
       .swal2-title {
         font-size: 18px !important;
         margin-bottom: 10px !important;
+        transition: color 0.3s ease !important;
+      }
+      body.dark-mode .swal2-title {
+        color: #ecf0f1 !important;
       }
       .swal2-actions {
         margin-top: 10px !important;
@@ -571,22 +1069,32 @@
       .autocomplete-items {
         max-height: 120px;
         border-radius: 6px;
+        transition: background-color 0.3s ease, border-color 0.3s ease;
       }
       .autocomplete-item {
         padding: 6px;
         font-size: 14px;
+        transition: background-color 0.3s ease;
       }
       .swal2-qrcode {
         display: block;
         margin: 10px auto;
         border: 1px solid #ddd;
         border-radius: 4px;
+        transition: border-color 0.3s ease;
+      }
+      body.dark-mode .swal2-qrcode {
+        border-color: #555;
       }
       .swal2-spinner-container {
         text-align: center;
         padding: 20px;
         color: #2196f3;
         font-size: 15px;
+        transition: color 0.3s ease;
+      }
+      body.dark-mode .swal2-spinner-container {
+        color: #1abc9c;
       }
       .swal2-spinner {
         width: 40px;
@@ -596,10 +1104,31 @@
         border-radius: 50%;
         animation: spin 1s linear infinite;
         margin: 0 auto 10px auto;
+        transition: border-color 0.3s ease;
+      }
+      body.dark-mode .swal2-spinner {
+        border-color: #555;
+        border-top-color: #1abc9c;
+      }
+      .summary-image {
+        width: 100px !important;
+        height: auto !important;
+        border-radius: 8px;
+        margin-bottom: 10px;
+      }
+      .dark-blue-title {
+        color: #00008b !important;
+        transition: color 0.3s ease !important;
+      }
+      body.dark-mode .dark-blue-title {
+        color: #74b9ff !important;
       }
       @media screen and (max-width: 360px) {
         .swal2-popup {
-          max-width: 300px !important;
+          max-width: 95vw !important;
+          width: 95vw !important;
+          padding: 10px !important;
+          font-size: 13px !important;
         }
         .swal2-input, .swal2-select {
           font-size: 13px;
@@ -622,6 +1151,10 @@
         background-color: #f0f4f8;
         padding: 15px;
         border-radius: 8px;
+        transition: background-color 0.3s ease;
+      }
+      body.dark-mode #all {
+        background-color: #34495e;
       }
       #all #searchContainerAll {
         display: flex;
@@ -635,6 +1168,13 @@
         border-radius: 8px;
         border: 1px solid #ccc;
         font-size: 16px;
+        transition: background-color 0.3s ease, border-color 0.3s ease;
+        background-color: white;
+      }
+      body.dark-mode #all #searchInputAll {
+        background-color: #34495e;
+        border-color: #555;
+        color: #ecf0f1;
       }
       #all table {
         width: 100%;
@@ -643,22 +1183,39 @@
         box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         border-radius: 12px;
         overflow: hidden;
+        transition: background 0.3s ease;
+      }
+      body.dark-mode #all table {
+        background: #2c3e50;
       }
       #all th, #all td {
         padding: 6px 12px;
         text-align: left;
         border-bottom: 1px solid #e0e0e0;
         cursor: pointer;
+        transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+      }
+      body.dark-mode #all th,
+      body.dark-mode #all td {
+        border-color: #555;
+        color: #e0e0e0;
       }
       #all th {
         background-color: #007bff;
         color: white;
+      }
+      body.dark-mode #all th {
+        background: linear-gradient(135deg, #1abc9c, #16a085);
+        color: #ecf0f1;
       }
       #all td:nth-child(6) {
         min-width: 180px;
       }
       #all tr:hover {
         background-color: #f1f1f1;
+      }
+      body.dark-mode #all tr:hover {
+        background-color: #3d566e;
       }
       #all .status-green {
         color: green;
@@ -675,6 +1232,7 @@
         border: none;
         border-radius: 6px;
         cursor: pointer;
+        transition: background-color 0.3s ease;
       }
       #all .detail-button:hover {
         background-color: #2980b9;
@@ -689,6 +1247,10 @@
         height: 100%;
         overflow: auto;
         background-color: rgba(0,0,0,0.5);
+        transition: background-color 0.3s ease;
+      }
+      body.dark-mode #all .all-modal {
+        background-color: rgba(0,0,0,0.8);
       }
       #all .all-modal-content {
         background-color: #fff;
@@ -697,6 +1259,11 @@
         border-radius: 12px;
         width: 80%;
         max-width: 500px;
+        transition: background-color 0.3s ease;
+      }
+      body.dark-mode #all .all-modal-content {
+        background-color: #2c3e50;
+        color: #ecf0f1;
       }
       #all .all-close {
         color: #aaa;
@@ -704,16 +1271,31 @@
         font-size: 24px;
         font-weight: bold;
         cursor: pointer;
+        transition: color 0.3s;
+      }
+      body.dark-mode #all .all-close {
+        color: #bdc3c7;
       }
       #all .all-close:hover {
         color: #000;
       }
+      body.dark-mode #all .all-close:hover {
+        color: #ecf0f1;
+      }
       #all #modalContentAll span.label {
         color: #007bff;
         font-weight: bold;
+        transition: color 0.3s ease;
+      }
+      body.dark-mode #all #modalContentAll span.label {
+        color: #1abc9c;
       }
       #all #modalContentAll span.value {
         color: #000;
+        transition: color 0.3s ease;
+      }
+      body.dark-mode #all #modalContentAll span.value {
+        color: #ecf0f1;
       }
       #all .all-pagination {
         display: flex;
@@ -731,6 +1313,7 @@
         cursor: pointer;
         font-size: 16px;
         margin: 0 5px;
+        transition: background-color 0.3s ease;
       }
       #all .all-pagination button:hover,
       #all .all-pagination select:hover {
@@ -743,19 +1326,24 @@
         border-radius: 6px;
         margin: 0 3px;
         cursor: pointer;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      body.dark-mode #all .all-pagination .all-page-number {
+        background-color: #34495e;
+        color: #1abc9c;
       }
       #all .all-pagination .all-page-number.active {
         background-color: #3498db;
+        color: white;
+      }
+      body.dark-mode #all .all-pagination .all-page-number.active {
+        background-color: #e67e22;
         color: white;
       }
       #all .all-pagination img {
         width: 20px;
         height: 20px;
         cursor: pointer;
-      }
-      #all .all-items-per-page {
-        margin-left: 10px;
-        font-size: 16px;
       }
       #all .all-pagination .all-page-number {
         width: 36px;
@@ -790,6 +1378,12 @@
       #all th,
       #all td {
         border: 1px solid #ccc;
+        transition: border-color 0.3s ease;
+      }
+      body.dark-mode #all table,
+      body.dark-mode #all th,
+      body.dark-mode #all td {
+        border-color: #555;
       }
       /* --- สไตล์เดิมของคุณคงอยู่ตรงนี้ --- */
       /* --- ปรับความกว้างเฉพาะบางคอลัมน์ --- */
@@ -837,12 +1431,6 @@
         #all tr:nth-child(odd) {
           animation-delay: 0.2s;
         }
-        @keyframes fadeInUp {
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
         /* Modal Animation */
         #all .all-modal-content {
           animation: zoomIn 0.4s ease;
@@ -882,6 +1470,10 @@
         background-color: #f0f4f8;
         padding: 15px;
         border-radius: 8px;
+        transition: background-color 0.3s ease;
+      }
+      body.dark-mode #pending-calls {
+        background-color: #34495e;
       }
       #pending-calls #searchContainerPending {
         display: flex;
@@ -901,6 +1493,10 @@
       #pending-calls #teamFilterLabelPending {
         font-size: 16px;
         color: #333;
+        transition: color 0.3s ease;
+      }
+      body.dark-mode #pending-calls #teamFilterLabelPending {
+        color: #ecf0f1;
       }
       #pending-calls #teamFilterPending {
         margin-left: 5px;
@@ -910,10 +1506,18 @@
         font-size: 16px;
         background-color: #fff;
         cursor: pointer;
-        transition: all 0.3s ease;
+        transition: all 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+      }
+      body.dark-mode #pending-calls #teamFilterPending {
+        background-color: #34495e;
+        border-color: #555;
+        color: #ecf0f1;
       }
       #pending-calls #teamFilterPending:hover {
         border-color: #2980b9;
+      }
+      body.dark-mode #pending-calls #teamFilterPending:hover {
+        border-color: #1abc9c;
       }
       #pending-calls #searchInputPending {
         width: 300px;
@@ -922,6 +1526,13 @@
         border: 1px solid #ccc;
         border-right: none;
         font-size: 16px;
+        transition: background-color 0.3s ease, border-color 0.3s ease;
+        background-color: white;
+      }
+      body.dark-mode #pending-calls #searchInputPending {
+        background-color: #34495e;
+        border-color: #555;
+        color: #ecf0f1;
       }
       #pending-calls #searchButtonPending {
         padding: 10px;
@@ -948,16 +1559,29 @@
         border-radius: 12px;
         overflow: hidden;
         min-width: 900px;
+        transition: background 0.3s ease;
+      }
+      body.dark-mode #pending-calls table {
+        background: #2c3e50;
       }
       #pending-calls th, #pending-calls td {
         padding: 8px 12px;
         text-align: left;
         border: 1px solid #ccc;
         white-space: nowrap;
+        transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+      }
+      body.dark-mode #pending-calls th, body.dark-mode #pending-calls td {
+        border-color: #555;
+        color: #e0e0e0;
       }
       #pending-calls th {
         background-color: #007bff;
         color: white;
+      }
+      body.dark-mode #pending-calls th {
+        background: linear-gradient(135deg, #1abc9c, #16a085);
+        color: #ecf0f1;
       }
       #pending-calls th.sortable {
         cursor: pointer;
@@ -965,12 +1589,18 @@
       #pending-calls th.sortable:hover {
         background-color: #0056b3;
       }
+      body.dark-mode #pending-calls th.sortable:hover {
+        background: linear-gradient(135deg, #16a085, #1abc9c);
+      }
       #pending-calls .pending-arrow {
         font-size: 12px;
         margin-left: 5px;
       }
       #pending-calls tr:hover {
         background-color: #f1f1f1;
+      }
+      body.dark-mode #pending-calls tr:hover {
+        background-color: #3d566e;
       }
       #pending-calls .pending-detail-button {
         padding: 6px 10px;
@@ -996,6 +1626,10 @@
         height: 100%;
         overflow: auto;
         background-color: rgba(0,0,0,0.5);
+        transition: background-color 0.3s ease;
+      }
+      body.dark-mode #pending-calls .pending-modal {
+        background-color: rgba(0,0,0,0.8);
       }
       #pending-calls .pending-modal-content {
         background-color: #fff;
@@ -1005,6 +1639,11 @@
         width: 80%;
         max-width: 500px;
         animation: zoomIn 0.4s ease;
+        transition: background-color 0.3s ease;
+      }
+      body.dark-mode #pending-calls .pending-modal-content {
+        background-color: #2c3e50;
+        color: #ecf0f1;
       }
       #pending-calls .pending-close {
         color: #aaa;
@@ -1012,16 +1651,31 @@
         font-size: 24px;
         font-weight: bold;
         cursor: pointer;
+        transition: color 0.3s;
+      }
+      body.dark-mode #pending-calls .pending-close {
+        color: #bdc3c7;
       }
       #pending-calls .pending-close:hover {
         color: #000;
       }
+      body.dark-mode #pending-calls .pending-close:hover {
+        color: #ecf0f1;
+      }
       #pending-calls #modalContentPending span.label {
         color: #007bff;
         font-weight: bold;
+        transition: color 0.3s ease;
+      }
+      body.dark-mode #pending-calls #modalContentPending span.label {
+        color: #1abc9c;
       }
       #pending-calls #modalContentPending span.value {
         color: #000;
+        transition: color 0.3s ease;
+      }
+      body.dark-mode #pending-calls #modalContentPending span.value {
+        color: #ecf0f1;
       }
       #pending-calls .pending-pagination {
         display: flex;
@@ -1072,6 +1726,10 @@
       #pending-calls .pending-items-per-page {
         margin-left: 10px;
         font-size: 16px;
+        transition: color 0.3s ease;
+      }
+      body.dark-mode #pending-calls .pending-items-per-page {
+        color: #ecf0f1;
       }
       #pending-calls tr {
         opacity: 0;
@@ -1125,9 +1783,17 @@
       }
       #pending-calls .pending-yellow-light {
         background-color: #c9ffc4;
+        transition: background-color 0.3s ease;
+      }
+      body.dark-mode #pending-calls .pending-yellow-light {
+        background-color: #2d5016;
       }
       #pending-calls .pending-pink-pastel {
         background-color: #fce4ec;
+        transition: background-color 0.3s ease;
+      }
+      body.dark-mode #pending-calls .pending-pink-pastel {
+        background-color: #50162d;
       }
       #pending-calls .pending-text-left {
         text-align: left;
@@ -1147,12 +1813,21 @@
         display: inline-flex;
         align-items: center;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-        transition: background-color 0.3s ease;
+        transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+      }
+      body.dark-mode #pending-calls .pending-call-count-box {
+        background-color: #1e3a5f;
+        color: #1abc9c;
+        border-color: #2c5282;
       }
       #pending-calls .pending-call-count-box span {
         color: #d63384;
         margin: 0 4px;
         font-size: 18px;
+        transition: color 0.3s ease;
+      }
+      body.dark-mode #pending-calls .pending-call-count-box span {
+        color: #ff6b9d;
       }
       #pending-calls .pending-modern-label {
         display: inline-block;
@@ -1164,12 +1839,21 @@
         font-weight: bold;
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
         border: 1px solid #d0eaff;
-        transition: all 0.3s ease;
+        transition: all 0.3s ease, background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         margin-right: 8px;
+      }
+      body.dark-mode #pending-calls .pending-modern-label {
+        background-color: #34495e;
+        color: #1abc9c;
+        border-color: #4a6582;
       }
       #pending-calls .pending-modern-label:hover {
         background-color: #e6f2ff;
         color: #0056b3;
+      }
+      body.dark-mode #pending-calls .pending-modern-label:hover {
+        background-color: #3d566e;
+        color: #16a085;
       }
       /* Disclaimer banner for legitimacy */
       .disclaimer {
@@ -1181,246 +1865,536 @@
         border-radius: 8px;
         text-align: center;
         font-size: 14px;
+        transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+      }
+      body.dark-mode .disclaimer {
+        background-color: #7f8c8d;
+        border-color: #95a5a6;
+        color: #ecf0f1;
+      }
+      /* Responsive adjustments for mobile devices */
+      @media screen and (max-width: 768px) {
+        body {
+          font-size: 14px; /* Smaller base font size */
+        }
+        .header {
+          padding: 8px 15px;
+          flex-wrap: wrap;
+          overflow: visible; /* Allow overflow on small screens to prevent clipping */
+          justify-content: space-between;
+        }
+        .header h1 {
+          font-size: 18px; /* Further reduced for compactness */
+          white-space: normal; /* Allow wrapping to prevent overflow */
+          text-align: left; /* Align left for better space usage */
+          flex-grow: 1;
+          flex-basis: 100%; /* Take full width on very small screens if needed */
+          margin-bottom: 5px;
+        }
+        .header-right {
+          flex-direction: row; /* Change to row for better horizontal space usage */
+          align-items: center;
+          gap: 5px;
+          flex-shrink: 0;
+        }
+        .logout-btn, .setting-btn {
+          padding: 6px 10px; /* Smaller padding */
+          font-size: 12px; /* Smaller font */
+          margin-left: 0; /* Remove margin to save space */
+          white-space: nowrap; /* Prevent wrapping */
+        }
+        .user-name-small {
+          font-size: 10px; /* Smaller font for name */
+          white-space: nowrap;
+          max-width: 120px; /* Limit width to prevent overflow */
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        .tabs {
+          flex-direction: column; /* Stack tabs vertically for mobile */
+          gap: 5px;
+        }
+        .tab-button {
+          font-size: 14px; /* Smaller tab font */
+          padding: 10px;
+        }
+        #parts th, #parts td, #today th, #today td {
+          padding: 6px 4px; /* Compact padding */
+          font-size: 12px; /* Smaller table font */
+        }
+        #parts table, #today table {
+          min-width: 600px; /* Reduced min-width for mobile */
+        }
+        #parts #searchInput, #today #searchInputToday {
+          font-size: 14px;
+          max-width: 100%; /* Full width on mobile */
+        }
+        .container {
+          padding: 10px; /* Smaller container padding */
+        }
+        .tab-content {
+          padding: 10px; /* Compact tab content */
+        }
+        .disclaimer {
+          font-size: 12px; /* Smaller disclaimer */
+          padding: 8px;
+        }
+        /* เพิ่มการปรับสำหรับ Swal บนมือถือ */
+        .swal2-container {
+          z-index: 99998 !important;
+        }
+        .swal2-popup {
+          position: relative !important;
+          margin: 0 !important;
+          transform: none !important;
+          width: 95vw !important;
+          max-height: 90vh !important;
+          overflow-y: auto !important;
+          z-index: 99999 !important;
+          padding: 15px !important;
+          border-radius: 10px !important;
+          font-size: 14px !important;
+        }
+        .swal2-backdrop {
+          z-index: 99997 !important;
+        }
+      }
+      @media screen and (max-width: 480px) {
+        .header h1 {
+          font-size: 16px; /* Even smaller on very small screens */
+        }
+        .header-right {
+          flex-direction: column; /* Stack vertically if still too tight */
+          align-items: flex-end;
+        }
+        #parts th, #parts td, #today th, #today td {
+          padding: 4px 2px; /* Even more compact */
+          font-size: 11px;
+        }
       }
     </style>
   </head>
-  <body>
-    <div class="header">
-      <h1>ระบบขอเบิกอะไหล่คลังสินค้านวนคร</h1>
+  <body class="light-mode">
+    <!-- Login Modal -->
+    <div id="loginModal" class="login-modal active">
+      <div class="login-content">
+        <h2>เข้าสู่ระบบ</h2>
+        <input type="text" id="username" placeholder="รหัสพนักงาน" />
+        <div class="password-container">
+          <input type="password" id="password" placeholder="รหัสผ่าน (ให้นึกก่อน)" />
+          <i class="fas fa-eye-slash" id="togglePassword" onclick="togglePasswordVisibility()"></i>
+        </div>
+        <div class="remember-me">
+          <input type="checkbox" id="rememberMe" />
+          <label for="rememberMe">Remember me</label>
+        </div>
+        <button onclick="handleLogin()">เข้าสู่ระบบ</button>
+        <div id="loginError" class="error">ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง!</div>
+      </div>
     </div>
-    <div class="loading" id="loading">
-      <span>กำลังโหลดข้อมูล...</span>
-    </div>
-    <div class="container">
-      <!-- Added disclaimer to clarify this is an internal tool -->
-      <div class="disclaimer">
-        ⚠️ ระบบนี้สำหรับคลังสินค้าเท่านั้น | ข้อมูลถูกส่งไปยัง Google Forms อย่างปลอดภัย | หากมีข้อสงสัย ติดต่อ คลังสินค้า
+    <!-- App Content -->
+    <div id="appContent" class="app-content">
+      <div class="header">
+        <div style="display: flex; align-items: center; gap: 15px;">
+          <button class="qrcode-header-btn" onclick="showQRCode()">
+            <i class="fas fa-qrcode"></i> QR
+          </button>
+          <h1>ระบบขอเบิกอะไหล่คลังสินค้านวนคร</h1>
+        </div>
+        <div class="header-right">
+          <button class="setting-btn" onclick="showSettings()" title="Settings">
+            <i class="fas fa-cog"></i>
+          </button>
+          <button class="logout-btn" onclick="handleLogout()" id="logoutBtn" style="display: none;">
+            <i class="fas fa-sign-out-alt"></i> ออกจากระบบ
+          </button>
+          <span id="userNameSmall" class="user-name-small"></span>
+        </div>
       </div>
-      <div class="tabs">
-        <button class="tab-button active" id="tab-parts" onclick="showTab('parts')">
-          ค้นหาอะไหล่เพื่อเบิก
-        </button>
-        <button class="tab-button" id="tab-today" onclick="showTab('today')">
-          รายการเบิกประจำวันนี้
-        </button>
-        <button class="tab-button" id="tab-all" onclick="showTab('all')">
-          ประวัติการเบิกอะไหล่
-        </button>
-        <button class="tab-button" id="tab-pending-calls" onclick="showTab('pending-calls')">
-          อะไหล่จ่ายตาม Call
-        </button>
+      <div class="loading" id="loading">
+        <span>กำลังโหลดข้อมูล...</span>
       </div>
-      <div id="parts" class="tab-content active">
-        <div id="searchContainer">
-          <input type="text" id="searchInput" placeholder="ค้นหา Code, Description...." />
-          <button id="searchButton" class="refresh-button">
-            <i class="fas fa-search"></i>
+      <div class="container">
+        <!-- Added disclaimer to clarify this is an internal tool -->
+        <div class="disclaimer">
+          ⚠️ ระบบนี้สำหรับคลังสินค้าวิภาวดี 62 เท่านั้น | ข้อมูลถูกส่งไปยัง Google Forms อย่างปลอดภัย | หากมีข้อสงสัย ติดต่อ คลังสินค้าวิภาวดี 62
+        </div>
+        <div class="tabs">
+          <button class="tab-button active" id="tab-parts" onclick="showTab('parts')">
+            ค้นหาอะไหล่เพื่อเบิก
+          </button>
+          <button class="tab-button" id="tab-today" onclick="showTab('today')">
+            รายการเบิกประจำวันนี้
+          </button>
+          <button class="tab-button" id="tab-all" onclick="showTab('all')">
+            ประวัติการเบิกอะไหล่
+          </button>
+          <button class="tab-button" id="tab-pending-calls" onclick="showTab('pending-calls')">
+            อะไหล่จ่ายตาม Call
           </button>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <div id="error-container">
-          <p id="error-message">เกิดข้อผิดพลาดในการโหลดข้อมูล กรุณาตรวจสอบการเชื่อมต่อหรือลองใหม่</p>
-          <button id="retry-button">ลองใหม่</button>
-        </div>
-        <div class="table-container">
-          <table id="data-table">
-            <thead>
-              <tr>
-                <th>เบิก</th>
-                <th>Image</th>
-                <th>Material</th>
-                <th>Description</th>
-                <th>วิภาวดี</th>
-                <th>นวนคร</th>
-                <th>Rebuilt</th>
-                <th>หมายเหตุ</th>
-                <th>Product</th>
-                <th>Spec</th>
-              </tr>
-            </thead>
-            <tbody></tbody>
-          </table>
-        </div>
-        <div id="pagination" class="pagination">
-          <button id="firstPage">
-            <i class="fas fa-chevron-left"></i><i class="fas fa-chevron-left"></i>
-          </button>
-          <button id="prevPage"><i class="fas fa-chevron-left"></i></button>
-          <div id="pageNumbers"></div>
-          <button id="nextPage"><i class="fas fa-chevron-right"></i></button>
-          <button id="lastPage">
-            <i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i>
-          </button>
-          <div class="items-per-page">
-            <label for="itemsPerPage">Show</label>
-            <select id="itemsPerPage">
-              <option value="10">10</option>
-              <option value="20">20</option>
-              <option value="30">30</option>
-            </select>
+        <div id="parts" class="tab-content active">
+          <div id="searchContainer">
+            <input type="text" id="searchInput" placeholder="ค้นหา Code, Description...." />
+            <button id="searchButton" class="refresh-button">
+              <i class="fas fa-search"></i>
+            </button>
           </div>
-        </div>
-      </div>
-      <div id="today" class="tab-content">
-        <div id="searchContainer">
-          <input type="text" id="searchInputToday" placeholder="ค้นหา Code, Material, ชื่อช่าง หรือ ทีม..." />
-        </div>
-        <div id="error-container-today" class="error-container" style="display: none;">
-          <p id="error-message-today">เกิดข้อผิดพลาดในการโหลดข้อมูล กรุณาตรวจสอบการเชื่อมต่อหรือลองใหม่</p>
-          <button id="retry-button-today">ลองใหม่</button>
-        </div>
-        <div id="loadingToday" class="spinner-container">
-          <div class="spinner"></div>
-          <p>กำลังโหลดข้อมูล...</p>
-        </div>
-        <div class="table-container">
-          <table id="data-table-today">
-            <thead>
-              <tr>
-                <th>Status</th>
-                <th>วันเวลาบันทึก</th>
-                <th>Material</th>
-                <th>Description</th>
-                <th>จำนวน</th>
-                <th>วิภาวดี</th>
-                <th>ชื่อช่าง</th>
-                <th>หน่วยงาน</th>
-                <th>Call</th>
-                <th>CallType</th>
-                <th>หมายเหตุ</th>
-                <th>ดูรายละเอียด</th>
-              </tr>
-            </thead>
-            <tbody></tbody>
-          </table>
-        </div>
-        <div id="detailModal" class="modal">
-          <div class="modal-content">
-            <span class="close" id="closeModal">×</span>
-            <h2>รายละเอียด</h2>
-            <div id="modalContent"></div>
+          <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+          <div id="error-container">
+            <p id="error-message">เกิดข้อผิดพลาดในการโหลดข้อมูล กรุณาตรวจสอบการเชื่อมต่อหรือลองใหม่</p>
+            <button id="retry-button">ลองใหม่</button>
           </div>
-        </div>
-      </div>
-      <div id="all" class="tab-content">
-        <div id="searchContainerAll">
-          <input type="text" id="searchInputAll" placeholder="ค้นหา Code,Description, ชื่อช่าง หรือ ทีม..." />
-        </div>
-        <div class="all-table-container">
-          <table id="data-table-all">
-            <thead>
-              <tr>
-                <th>Status</th>
-                <th class="sortable" data-column="Timestamp">วันเวลา <span class="arrow"></span></th>
-                <th class="sortable" data-column="Code">Material <span class="arrow"></span></th>
-                <th class="sortable" data-column="Material Description">Description <span class="arrow"></span></th>
-                <th>จำนวน</th>
-                <th class="sortable" data-column="ชื่อช่าง">ชื่อช่าง <span class="arrow"></span></th>
-                <th>หน่วยงาน</th>
-                <th>เลขที่Call</th>
-                <th>CallType</th>
-                <th class="sortable" data-column="หมายเหตุ">หมายเหตุ <span class="arrow"></span></th>
-                <th>ดูรายละเอียด</th>
-              </tr>
-            </thead>
-            <tbody></tbody>
-          </table>
-        </div>
-        <div id="detailModalAll" class="all-modal">
-          <div class="all-modal-content">
-            <span class="all-close" id="closeModalAll">&times;</span>
-            <h2>รายละเอียด</h2>
-            <div id="modalContentAll"></div>
+          <div class="table-container">
+            <table id="data-table">
+              <thead>
+                <tr>
+                  <th>เบิก</th>
+                  <th>Image</th>
+                  <th>Material</th>
+                  <th>Description</th>
+                  <th>วิภาวดี</th>
+                  <th>นวนคร</th>
+                  <th>Rebuilt</th>
+                  <th>หมายเหตุ</th>
+                  <th>Product</th>
+                  <th>Spec</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
           </div>
-        </div>
-        <div class="all-pagination">
-          <button id="firstPageAll"><i class="fas fa-chevron-left"></i><i class="fas fa-chevron-left"></i></button>
-          <button id="prevPageAll"><i class="fas fa-chevron-left"></i></button>
-          <div id="pageNumbersAll"></div>
-          <button id="nextPageAll"><i class="fas fa-chevron-right"></i></button>
-          <button id="lastPageAll">
-            <i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i>
-          </button>
-          <div class="all-items-per-page">
-            <label for="itemsPerPageAll">:</label>
-            <select id="itemsPerPageAll">
-              <option value="10">10 รายการ</option>
-              <option value="20">20 รายการ</option>
-              <option value="30">30 รายการ</option>
-            </select>
-          </div>
-        </div>
-      </div>
-      <div id="pending-calls" class="tab-content">
-        <div id="searchContainerPending">
-          <div class="pending-filter-row">
-            <label id="teamFilterLabelPending" for="teamFilterPending" class="pending-modern-label">เลือกทีม</label>
-            <select id="teamFilterPending">
-              <option value="">ทั้งหมด</option>
-            </select>
-            <div id="callCountInfoPending" class="pending-call-count-box">
-              จำนวน Ticket ค้าง <span id="callCountValuePending">0</span> Call
+          <div id="pagination" class="pagination">
+            <button id="firstPage">
+              <i class="fas fa-chevron-left"></i><i class="fas fa-chevron-left"></i>
+            </button>
+            <button id="prevPage"><i class="fas fa-chevron-left"></i></button>
+            <div id="pageNumbers"></div>
+            <button id="nextPage"><i class="fas fa-chevron-right"></i></button>
+            <button id="lastPage">
+              <i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i>
+            </button>
+            <div class="items-per-page">
+              <label for="itemsPerPage">Show</label>
+              <select id="itemsPerPage">
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+              </select>
             </div>
           </div>
-          <div class="pending-search-row">
-            <input type="text" id="searchInputPending" placeholder="ค้นหา Ticket, Team, สาขา, ค้างหน่วยงาน, Material, Description..." />
-            <button id="searchButtonPending"><i class="fas fa-search"></i></button>
+        </div>
+        <div id="today" class="tab-content">
+          <div id="searchContainer">
+            <input type="text" id="searchInputToday" placeholder="ค้นหา Code, Material, ชื่อช่าง หรือ ทีม..." />
+          </div>
+          <div id="error-container-today" class="error-container" style="display: none;">
+            <p id="error-message-today">เกิดข้อผิดพลาดในการโหลดข้อมูล กรุณาตรวจสอบการเชื่อมต่อหรือลองใหม่</p>
+            <button id="retry-button-today">ลองใหม่</button>
+          </div>
+          <div id="loadingToday" class="spinner-container">
+            <div class="spinner"></div>
+            <p>กำลังโหลดข้อมูล...</p>
+          </div>
+          <div class="table-container">
+            <table id="data-table-today">
+              <thead>
+                <tr>
+                  <th>Status</th>
+                  <th>วันเวลาบันทึก</th>
+                  <th>Material</th>
+                  <th>Description</th>
+                  <th>จำนวน</th>
+                  <th>วิภาวดี</th>
+                  <th>ชื่อช่าง</th>
+                  <th>หน่วยงาน</th>
+                  <th>Call</th>
+                  <th>CallType</th>
+                  <th>หมายเหตุ</th>
+                  <th>ดูรายละเอียด</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div id="detailModal" class="modal">
+            <div class="modal-content">
+              <span class="close" id="closeModal">×</span>
+              <h2>รายละเอียด</h2>
+              <div id="modalContent"></div>
+            </div>
           </div>
         </div>
-        <div class="pending-table-container">
-          <table id="data-table-pending">
-            <thead>
-              <tr>
-                <th class="sortable" data-column="DateTime">วันที่แจ้ง <span class="pending-arrow"></span></th>
-                <th class="sortable" data-column="Ticket Number">Ticket <span class="pending-arrow"></span></th>
-                <th class="sortable" data-column="Team">Team <span class="pending-arrow"></span></th>
-                <th class="sortable" data-column="Brand">สาขา <span class="pending-arrow"></span></th>
-                <th class="sortable" data-column="ค้างหน่วยงาน">ค้างหน่วยงาน <span class="pending-arrow"></span></th>
-                <th class="sortable" data-column="Material">Material <span class="pending-arrow"></span></th>
-                <th class="sortable" data-column="Description">Description <span class="pending-arrow"></span></th>
-                <th class="sortable" data-column="Vipa">คงเหลือ <span class="pending-arrow"></span></th>
-                <th class="sortable" data-column="DayRepair">ค้าง(วัน) <span class="pending-arrow"></span></th>
-                <th>ดูรายละเอียด</th>
-              </tr>
-            </thead>
-            <tbody></tbody>
-          </table>
-        </div>
-        <div id="detailModalPending" class="pending-modal">
-          <div class="pending-modal-content">
-            <span class="pending-close" id="closeModalPending">×</span>
-            <h2>รายละเอียด</h2>
-            <div id="modalContentPending"></div>
+        <div id="all" class="tab-content">
+          <div id="searchContainerAll">
+            <input type="text" id="searchInputAll" placeholder="ค้นหา Code,Description, ชื่อช่าง หรือ ทีม..." />
+          </div>
+          <div class="all-table-container">
+            <table id="data-table-all">
+              <thead>
+                <tr>
+                  <th>Status</th>
+                  <th class="sortable" data-column="Timestamp">วันเวลา <span class="arrow"></span></th>
+                  <th class="sortable" data-column="Code">Material <span class="arrow"></span></th>
+                  <th class="sortable" data-column="Material Description">Description <span class="arrow"></span></th>
+                  <th>จำนวน</th>
+                  <th class="sortable" data-column="ชื่อช่าง">ชื่อช่าง <span class="arrow"></span></th>
+                  <th>หน่วยงาน</th>
+                  <th>เลขที่Call</th>
+                  <th>CallType</th>
+                  <th class="sortable" data-column="หมายเหตุ">หมายเหตุ <span class="arrow"></span></th>
+                  <th>ดูรายละเอียด</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div id="detailModalAll" class="all-modal">
+            <div class="all-modal-content">
+              <span class="all-close" id="closeModalAll">&times;</span>
+              <h2>รายละเอียด</h2>
+              <div id="modalContentAll"></div>
+            </div>
+          </div>
+          <div class="all-pagination">
+            <button id="firstPageAll"><i class="fas fa-chevron-left"></i><i class="fas fa-chevron-left"></i></button>
+            <button id="prevPageAll"><i class="fas fa-chevron-left"></i></button>
+            <div id="pageNumbersAll"></div>
+            <button id="nextPageAll"><i class="fas fa-chevron-right"></i></button>
+            <button id="lastPageAll">
+              <i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i>
+            </button>
+            <div class="all-items-per-page">
+              <label for="itemsPerPageAll">:</label>
+              <select id="itemsPerPageAll">
+                <option value="10">10 รายการ</option>
+                <option value="20">20 รายการ</option>
+                <option value="30">30 รายการ</option>
+              </select>
+            </div>
           </div>
         </div>
-        <div class="pending-pagination">
-          <button id="firstPagePending"><i class="fas fa-chevron-left"></i><i class="fas fa-chevron-left"></i></button>
-          <button id="prevPagePending"><i class="fas fa-chevron-left"></i></button>
-          <div id="pageNumbersPending"></div>
-          <button id="nextPagePending"><i class="fas fa-chevron-right"></i></button>
-          <button id="lastPagePending">
-            <i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i>
-          </button>
-          <div class="pending-items-per-page">
-            <label for="itemsPerPagePending">รายการต่อหน้า:</label>
-            <select id="itemsPerPagePending">
-              <option value="10">10 รายการ</option>
-              <option value="20" selected>20 รายการ</option>
-              <option value="30">30 รายการ</option>
-            </select>
+        <div id="pending-calls" class="tab-content">
+          <div id="searchContainerPending">
+            <div class="pending-filter-row">
+              <label id="teamFilterLabelPending" for="teamFilterPending" class="pending-modern-label">เลือกทีม</label>
+              <select id="teamFilterPending">
+                <option value="">ทั้งหมด</option>
+              </select>
+              <div id="callCountInfoPending" class="pending-call-count-box">
+                จำนวน Ticket ค้าง <span id="callCountValuePending">0</span> Call
+              </div>
+            </div>
+            <div class="pending-search-row">
+              <input type="text" id="searchInputPending" placeholder="ค้นหา Ticket, Team, สาขา, ค้างหน่วยงาน, Material, Description..." />
+              <button id="searchButtonPending"><i class="fas fa-search"></i></button>
+            </div>
+          </div>
+          <div class="pending-table-container">
+            <table id="data-table-pending">
+              <thead>
+                <tr>
+                  <th class="sortable" data-column="DateTime">วันที่แจ้ง <span class="pending-arrow"></span></th>
+                  <th class="sortable" data-column="Ticket Number">Ticket <span class="pending-arrow"></span></th>
+                  <th class="sortable" data-column="Team">Team <span class="pending-arrow"></span></th>
+                  <th class="sortable" data-column="Brand">สาขา <span class="pending-arrow"></span></th>
+                  <th class="sortable" data-column="ค้างหน่วยงาน">ค้างหน่วยงาน <span class="pending-arrow"></span></th>
+                  <th class="sortable" data-column="Material">Material <span class="pending-arrow"></span></th>
+                  <th class="sortable" data-column="Description">Description <span class="pending-arrow"></span></th>
+                  <th class="sortable" data-column="Vipa">คงเหลือ <span class="pending-arrow"></span></th>
+                  <th class="sortable" data-column="DayRepair">ค้าง(วัน) <span class="pending-arrow"></span></th>
+                  <th>ดูรายละเอียด</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div id="detailModalPending" class="pending-modal">
+            <div class="pending-modal-content">
+              <span class="pending-close" id="closeModalPending">×</span>
+              <h2>รายละเอียด</h2>
+              <div id="modalContentPending"></div>
+            </div>
+          </div>
+          <div class="pending-pagination">
+            <button id="firstPagePending"><i class="fas fa-chevron-left"></i><i class="fas fa-chevron-left"></i></button>
+            <button id="prevPagePending"><i class="fas fa-chevron-left"></i></button>
+            <div id="pageNumbersPending"></div>
+            <button id="nextPagePending"><i class="fas fa-chevron-right"></i></button>
+            <button id="lastPagePending">
+              <i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i>
+            </button>
+            <div class="pending-items-per-page">
+              <label for="itemsPerPagePending">รายการต่อหน้า:</label>
+              <select id="itemsPerPagePending">
+                <option value="10">10 รายการ</option>
+                <option value="20" selected>20 รายการ</option>
+                <option value="30">30 รายการ</option>
+              </select>
+            </div>
           </div>
         </div>
       </div>
+      <div class="footer">
+        <p>© 2025 คลังสินค้า SparePart วิภาวดี 62 | สงวนลิขสิทธิ์</p>
+      </div>
     </div>
-    <div class="footer">
-      <p>© 2025 คลังสินค้า SparePart วิภาวดี 62 | สงวนลิขสิทธิ์</p>
-    </div>
-   <div class="social-buttons">
-  <button class="social-button qrcode" onclick="showQRCode()">
-    <i class="fas fa-qrcode"></i>
-  </button>
-</div>
     <script>
+      // Global employee data
+      let employeeData = [];
+      // Theme Management
+      function setTheme(theme) {
+        localStorage.setItem('theme', theme);
+        document.body.classList.remove('dark-mode', 'light-mode');
+        document.body.classList.add(theme + '-mode');
+      }
+      function loadTheme() {
+        const theme = localStorage.getItem('theme') || 'light';
+        setTheme(theme);
+      }
+      function showSettings() {
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        Swal.fire({
+          title: '⚙️ การตั้งค่า',
+          html: `
+            <div style="text-align: left;">
+              <label style="display: block; margin-bottom: 10px; font-weight: bold;">โหมดธีม</label>
+              <select id="themeSelect" style="width: 100%; padding: 8px; border-radius: 4px; border: 1px solid #ccc;">
+                <option value="dark" ${currentTheme === 'dark' ? 'selected' : ''}>โหมดมืด</option>
+                <option value="light" ${currentTheme === 'light' ? 'selected' : ''}>โหมดสว่าง</option>
+              </select>
+            </div>
+          `,
+          confirmButtonText: 'บันทึก',
+          showCancelButton: true,
+          cancelButtonText: 'ยกเลิก',
+          preConfirm: () => {
+            const theme = document.getElementById('themeSelect').value;
+            setTheme(theme);
+          }
+        });
+      }
+      // Login System
+      const loginModal = document.getElementById('loginModal');
+      const appContent = document.getElementById('appContent');
+      const logoutBtn = document.getElementById('logoutBtn');
+      const usernameInput = document.getElementById('username');
+      const passwordInput = document.getElementById('password');
+      const loginError = document.getElementById('loginError');
+      const rememberMeCheckbox = document.getElementById('rememberMe');
+      const togglePasswordIcon = document.getElementById('togglePassword');
+      const userNameSmall = document.getElementById('userNameSmall');
+      function togglePasswordVisibility() {
+        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordInput.setAttribute('type', type);
+        togglePasswordIcon.classList.toggle('fa-eye-slash');
+        togglePasswordIcon.classList.toggle('fa-eye');
+      }
+      async function loadEmployeeData() {
+        const employeeSheetID = "1eqVoLsZxGguEbRCC5rdI4iMVtQ7CK4T3uXRdx8zE3uw";
+        const employeeSheetName = "Employee";
+        const employeeUrl = `https://opensheet.elk.sh/${employeeSheetID}/${employeeSheetName}`;
+        try {
+          const response = await fetch(employeeUrl);
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          const data = await response.json();
+          return data;
+        } catch (error) {
+          console.error("Error loading employee data:", error);
+          throw error;
+        }
+      }
+      async function handleLogin() {
+        const username = usernameInput.value.trim();
+        const password = passwordInput.value.trim();
+        loginError.style.display = 'none';
+        if (!username || !password) {
+          loginError.textContent = 'กรุณากรอกชื่อผู้ใช้และรหัสผ่าน';
+          loginError.style.display = 'block';
+          return;
+        }
+        try {
+          employeeData = await loadEmployeeData();
+          const expectedPassword = username.slice(-4);
+          const employee = employeeData.find(e => e.IDRec && e.IDRec.toString().trim() === username && expectedPassword === password);
+          if (employee && employee.Name) {
+            localStorage.setItem('isLoggedIn', 'true');
+            localStorage.setItem('username', username);
+            localStorage.setItem('userName', employee.Name);
+            if (rememberMeCheckbox.checked) {
+              localStorage.setItem('savedUsername', username);
+              localStorage.setItem('rememberMe', 'true');
+            } else {
+              localStorage.removeItem('savedUsername');
+              localStorage.removeItem('rememberMe');
+            }
+            checkLoginStatus();
+            // Focus on search input after login
+            setTimeout(() => {
+              const searchInput = document.getElementById('searchInput');
+              if (searchInput) searchInput.focus();
+            }, 500);
+          } else {
+            loginError.textContent = 'ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง!';
+            loginError.style.display = 'block';
+            passwordInput.value = ''; // Clear password on error
+          }
+        } catch (error) {
+          loginError.textContent = 'เกิดข้อผิดพลาดในการโหลดข้อมูลพนักงาน กรุณาลองใหม่';
+          loginError.style.display = 'block';
+          console.error('Login error:', error);
+        }
+      }
+      function checkLoginStatus() {
+        const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+        const savedUsername = localStorage.getItem('username');
+        if (isLoggedIn && savedUsername) {
+          loginModal.classList.remove('active');
+          appContent.classList.add('logged-in');
+          logoutBtn.style.display = 'block';
+          userNameSmall.textContent = localStorage.getItem('userName') || '';
+          // Auto-load default tab if needed
+          if (document.querySelector('.tab-button.active')) {
+            showTab('parts');
+          }
+        } else {
+          loginModal.classList.add('active');
+          appContent.classList.remove('logged-in');
+          logoutBtn.style.display = 'none';
+          userNameSmall.textContent = '';
+          // Clear invalid session
+          localStorage.removeItem('isLoggedIn');
+          localStorage.removeItem('username');
+          localStorage.removeItem('userName');
+          localStorage.removeItem('savedPassword'); // Clear saved password on invalid session
+        }
+        // Load saved credentials if remember me was checked
+        if (localStorage.getItem('rememberMe') === 'true') {
+          const savedUsername = localStorage.getItem('savedUsername');
+          if (savedUsername) usernameInput.value = savedUsername;
+          rememberMeCheckbox.checked = true;
+        }
+      }
+      function handleLogout() {
+        localStorage.removeItem('isLoggedIn');
+        localStorage.removeItem('username');
+        localStorage.removeItem('userName');
+        localStorage.removeItem('savedUsername');
+        localStorage.removeItem('savedPassword');
+        localStorage.removeItem('rememberMe');
+        checkLoginStatus();
+      }
+      // Allow Enter key for login
+      passwordInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+          handleLogin();
+        }
+      });
+      // Initial check on load
+      loadTheme();
+      checkLoginStatus();
       function showTab(tabId) {
         const buttons = document.querySelectorAll(".tab-button");
         const contents = document.querySelectorAll(".tab-content");
@@ -1451,7 +2425,7 @@
         Swal.fire({
           title: '📷 สแกน QR Code',
           html: `
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://request888.vercel.app/" alt="QR Code" class="swal2-qrcode" style="width: 150px; height: 150px;">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://request-nawanakorn.vercel.app/" alt="QR Code" class="swal2-qrcode" style="width: 150px; height: 150px;">
             <p>สแกนเพื่อเข้าสู่ระบบขอเบิกอะไหล่</p>
           `,
           confirmButtonText: 'ปิด',
@@ -1566,13 +2540,13 @@
             if (col === "UrlWeb" && value && value.startsWith("https://drive.google.com/uc?")) {
               td.innerHTML = `
                 <a href="${value}" target="_blank" rel="noopener noreferrer">
-                 <button class="view-image-btn">ดูรูป</button>
+                 <button class="image-button">Image</button>
                 </a>
               `;
             } else if (col === "UrlWeb" && value) {
               td.innerHTML = `
                 <a href="${value}" target="_blank" rel="noopener noreferrer">
-                  <button class="view-image-btn">ดูรูป</button>
+                  <button class="image-button">Image</button>
                 </a>
               `;
             } else {
@@ -1583,22 +2557,6 @@
           tableBody.appendChild(tr);
         });
       }
-      async function loadEmployeeData() {
-        const employeeSheetID = "1eqVoLsZxGguEbRCC5rdI4iMVtQ7CK4T3uXRdx8zE3uw";
-        const employeeSheetName = "Employee";
-        const employeeUrl = `https://opensheet.elk.sh/${employeeSheetID}/${employeeSheetName}`;
-        try {
-          const response = await fetch(employeeUrl);
-          if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-          }
-          const data = await response.json();
-          return data;
-        } catch (error) {
-          console.error("Error loading employee data:", error);
-          return [];
-        }
-      }
       async function showRequisitionDialog(row) {
         document.body.style.overflow = 'hidden';
         const history = {
@@ -1608,7 +2566,9 @@
           callNumber: getFromLocalStorage('callNumber'),
           callType: getFromLocalStorage('callType'),
         };
-        const employeeData = await loadEmployeeData();
+        if (employeeData.length === 0) {
+          employeeData = await loadEmployeeData();
+        }
         Swal.fire({
           title: '📋 เบิกอะไหล่นวนคร',
           html: `
@@ -1711,6 +2671,45 @@
           allowOutsideClick: false,
           allowEscapeKey: false,
           didOpen: () => {
+            // Force high z-index and ensure backdrop covers full screen
+            const swalContainer = document.querySelector('.swal2-container');
+            if (swalContainer) {
+              swalContainer.style.zIndex = '99998';
+              swalContainer.style.position = 'fixed';
+              swalContainer.style.top = '0';
+              swalContainer.style.left = '0';
+              swalContainer.style.width = '100vw';
+              swalContainer.style.height = '100vh';
+              swalContainer.style.display = 'flex';
+              swalContainer.style.justifyContent = 'center';
+              swalContainer.style.alignItems = 'center';
+            }
+            const swalBackdrop = document.querySelector('.swal2-backdrop');
+            if (swalBackdrop) {
+              swalBackdrop.style.zIndex = '99997';
+              swalBackdrop.style.position = 'fixed';
+              swalBackdrop.style.top = '0';
+              swalBackdrop.style.left = '0';
+              swalBackdrop.style.width = '100vw';
+              swalBackdrop.style.height = '100vh';
+              swalBackdrop.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+              swalBackdrop.style.backdropFilter = 'blur(8px)';
+            }
+            const swalPopup = document.querySelector('.swal2-popup');
+            if (swalPopup) {
+              swalPopup.style.zIndex = '99999';
+              swalPopup.style.position = 'relative';
+              swalPopup.style.margin = '0';
+              swalPopup.style.transform = 'none';
+              swalPopup.style.maxHeight = '90vh';
+              swalPopup.style.overflowY = 'auto';
+              swalPopup.style.width = 'auto';
+              swalPopup.style.maxWidth = '90vw';
+              if (window.innerWidth <= 768) {
+                swalPopup.style.width = '95vw';
+                swalPopup.style.padding = '15px';
+              }
+            }
             const quantityInput = document.getElementById('swal-quantity');
             const employeeCodeInput = document.getElementById('swal-employee-code');
             const contactInput = document.getElementById('swal-contact');
@@ -1751,17 +2750,6 @@
             const lastContact = getFromLocalStorage('contact')[0];
             if (lastContact) contactInput.value = lastContact;
             const inputs = [quantityInput, employeeCodeInput, contactInput, callNumberInput, callTypeInput, remarkInput];
-            inputs.forEach(input => {
-              input.addEventListener('focus', () => {
-                const popup = document.querySelector('.swal2-popup');
-                popup.style.transform = 'translateY(-20%)';
-                popup.style.transition = 'transform 0.3s ease';
-              });
-              input.addEventListener('blur', () => {
-                const popup = document.querySelector('.swal2-popup');
-                popup.style.transform = 'translateY(0)';
-              });
-            });
             function validateInputs() {
               const errors = {
                 quantityError: document.getElementById('swal-quantity-error'),
@@ -1944,9 +2932,14 @@
               });
             }
             // เพิ่ม popup สรุปข้อมูลที่นี่
+            let imageHtml = '';
+            if (row.UrlWeb && row.UrlWeb.trim()) {
+              imageHtml = `<img src="${row.UrlWeb}" alt="Product Image" class="summary-image">`;
+            }
             const summaryResult = await Swal.fire({
               title: 'สรุปข้อมูลการเบิก',
               html: `
+                ${imageHtml}
                 <div style="text-align: left; font-size: 14px;">
                   <p><strong>Material:</strong> ${row.Material || ''}</p>
                   <p><strong>Description:</strong> ${row.Description || ''}</p>
@@ -1966,7 +2959,51 @@
               confirmButtonText: 'ยืนยันการเบิก',
               cancelButtonText: 'แก้ไข',
               allowOutsideClick: false,
-              allowEscapeKey: false
+              allowEscapeKey: false,
+              customClass: {
+                title: 'dark-blue-title'
+              },
+              didOpen: () => {
+                // Ensure full blur backdrop for summary popup as well
+                const swalContainer = document.querySelector('.swal2-container');
+                if (swalContainer) {
+                  swalContainer.style.zIndex = '99998';
+                  swalContainer.style.position = 'fixed';
+                  swalContainer.style.top = '0';
+                  swalContainer.style.left = '0';
+                  swalContainer.style.width = '100vw';
+                  swalContainer.style.height = '100vh';
+                  swalContainer.style.display = 'flex';
+                  swalContainer.style.justifyContent = 'center';
+                  swalContainer.style.alignItems = 'center';
+                }
+                const swalBackdrop = document.querySelector('.swal2-backdrop');
+                if (swalBackdrop) {
+                  swalBackdrop.style.zIndex = '99997';
+                  swalBackdrop.style.position = 'fixed';
+                  swalBackdrop.style.top = '0';
+                  swalBackdrop.style.left = '0';
+                  swalBackdrop.style.width = '100vw';
+                  swalBackdrop.style.height = '100vh';
+                  swalBackdrop.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+                  swalBackdrop.style.backdropFilter = 'blur(8px)';
+                }
+                const swalPopup = document.querySelector('.swal2-popup');
+                if (swalPopup) {
+                  swalPopup.style.zIndex = '99999';
+                  swalPopup.style.position = 'relative';
+                  swalPopup.style.margin = '0';
+                  swalPopup.style.transform = 'none';
+                  swalPopup.style.maxHeight = '90vh';
+                  swalPopup.style.overflowY = 'auto';
+                  swalPopup.style.width = 'auto';
+                  swalPopup.style.maxWidth = '90vw';
+                  if (window.innerWidth <= 768) {
+                    swalPopup.style.width = '95vw';
+                    swalPopup.style.padding = '15px';
+                  }
+                }
+              }
             });
             if (summaryResult.isConfirmed) {
               // ดำเนินการส่งข้อมูล
@@ -1990,7 +3027,48 @@
                 `,
                 showConfirmButton: false,
                 allowOutsideClick: false,
-                allowEscapeKey: false
+                allowEscapeKey: false,
+                didOpen: () => {
+                  // Ensure full blur for loading popup
+                  const swalContainer = document.querySelector('.swal2-container');
+                  if (swalContainer) {
+                    swalContainer.style.zIndex = '99998';
+                    swalContainer.style.position = 'fixed';
+                    swalContainer.style.top = '0';
+                    swalContainer.style.left = '0';
+                    swalContainer.style.width = '100vw';
+                    swalContainer.style.height = '100vh';
+                    swalContainer.style.display = 'flex';
+                    swalContainer.style.justifyContent = 'center';
+                    swalContainer.style.alignItems = 'center';
+                  }
+                  const swalBackdrop = document.querySelector('.swal2-backdrop');
+                  if (swalBackdrop) {
+                    swalBackdrop.style.zIndex = '99997';
+                    swalBackdrop.style.position = 'fixed';
+                    swalBackdrop.style.top = '0';
+                    swalBackdrop.style.left = '0';
+                    swalBackdrop.style.width = '100vw';
+                    swalBackdrop.style.height = '100vh';
+                    swalBackdrop.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+                    swalBackdrop.style.backdropFilter = 'blur(8px)';
+                  }
+                  const swalPopup = document.querySelector('.swal2-popup');
+                  if (swalPopup) {
+                    swalPopup.style.zIndex = '99999';
+                    swalPopup.style.position = 'relative';
+                    swalPopup.style.margin = '0';
+                    swalPopup.style.transform = 'none';
+                    swalPopup.style.maxHeight = '90vh';
+                    swalPopup.style.overflowY = 'auto';
+                    swalPopup.style.width = 'auto';
+                    swalPopup.style.maxWidth = '90vw';
+                    if (window.innerWidth <= 768) {
+                      swalPopup.style.width = '95vw';
+                      swalPopup.style.padding = '15px';
+                    }
+                  }
+                }
               });
               try {
                 const response = await fetch(formUrl, {
@@ -2019,11 +3097,66 @@
                       `,
                       showConfirmButton: false,
                       allowOutsideClick: false,
-                      allowEscapeKey: false
+                      allowEscapeKey: false,
+                      didOpen: () => {
+                        // Ensure full blur for redirect popup
+                        const swalContainer = document.querySelector('.swal2-container');
+                        if (swalContainer) {
+                          swalContainer.style.zIndex = '99998';
+                          swalContainer.style.position = 'fixed';
+                          swalContainer.style.top = '0';
+                          swalContainer.style.left = '0';
+                          swalContainer.style.width = '100vw';
+                          swalContainer.style.height = '100vh';
+                          swalContainer.style.display = 'flex';
+                          swalContainer.style.justifyContent = 'center';
+                          swalContainer.style.alignItems = 'center';
+                        }
+                        const swalBackdrop = document.querySelector('.swal2-backdrop');
+                        if (swalBackdrop) {
+                          swalBackdrop.style.zIndex = '99997';
+                          swalBackdrop.style.position = 'fixed';
+                          swalBackdrop.style.top = '0';
+                          swalBackdrop.style.left = '0';
+                          swalBackdrop.style.width = '100vw';
+                          swalBackdrop.style.height = '100vh';
+                          swalBackdrop.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+                          swalBackdrop.style.backdropFilter = 'blur(8px)';
+                        }
+                        const swalPopup = document.querySelector('.swal2-popup');
+                        if (swalPopup) {
+                          swalPopup.style.zIndex = '99999';
+                          swalPopup.style.position = 'relative';
+                          swalPopup.style.margin = '0';
+                          swalPopup.style.transform = 'none';
+                          swalPopup.style.maxHeight = '90vh';
+                          swalPopup.style.overflowY = 'auto';
+                          swalPopup.style.width = 'auto';
+                          swalPopup.style.maxWidth = '90vw';
+                          if (window.innerWidth <= 768) {
+                            swalPopup.style.width = '95vw';
+                            swalPopup.style.padding = '15px';
+                          }
+                        }
+                      }
                     });
                     setTimeout(() => {
                       Swal.close();
                       showTab('today');
+                      // Fix for mobile scroll lock after tab switch
+                      setTimeout(() => {
+                        document.body.style.overflow = 'auto';
+                        const searchInputToday = document.getElementById('searchInputToday');
+                        if (searchInputToday) {
+                          searchInputToday.focus();
+                          searchInputToday.blur(); // Trigger a touch event to unlock scroll on mobile
+                        }
+                        // Simulate a touch event to unlock scroll
+                        if ('ontouchstart' in window) {
+                          const event = new Event('touchstart', { bubbles: true });
+                          document.body.dispatchEvent(event);
+                        }
+                      }, 100);
                     }, 2000);
                   }
                 });
@@ -2337,6 +3470,14 @@
           document.getElementById("loading").style.display = "none";
           document.getElementById("loadingToday").style.display = "none";
           document.getElementById("data-table-today").style.display = "table";
+          // Fix for mobile scroll after loading
+          setTimeout(() => {
+            document.body.style.overflow = 'auto';
+            if ('ontouchstart' in window) {
+              const event = new Event('touchstart', { bubbles: true });
+              document.body.dispatchEvent(event);
+            }
+          }, 100);
         } catch (error) {
           console.error("Error loading today data:", error);
           document.getElementById("loading").style.display = "none";
@@ -2786,7 +3927,10 @@
             tableBodyPending.innerHTML = '<tr><td colspan="10" class="pending-text-center">เกิดข้อผิดพลาดในการโหลดข้อมูล</td></tr>';
           });
       }
-      loadData();
+      // Auto-load default data if logged in
+      if (appContent.classList.contains('logged-in')) {
+        loadData();
+      }
     </script>
   </body>
 </html>
